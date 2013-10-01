@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
+		4C92ECAD17FB68D1003C0F9E /* RGDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDModel.m */; };
 		4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0917FB4D0000252013 /* UIKit.framework */; };
 		4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0B17FB4D0000252013 /* Foundation.framework */; };
 		4CEEBA0E17FB4D0000252013 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */; };
@@ -24,10 +26,13 @@
 		4CEEBA4017FB4DC100252013 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA3917FB4DC100252013 /* libsasl2.a */; };
 		4CEEBA4117FB4DC100252013 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA3A17FB4DC100252013 /* libssl.a */; };
 		4CEEBA4217FB4DC100252013 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA3C17FB4DC100252013 /* RHLDAPSearch.m */; };
-		4CEEBA4817FB57B700252013 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA4717FB57B700252013 /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchViewController.h; sourceTree = "<group>"; };
+		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
+		4C92ECAB17FB68D1003C0F9E /* RGDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDModel.h; sourceTree = "<group>"; };
+		4C92ECAC17FB68D1003C0F9E /* RGDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDModel.m; sourceTree = "<group>"; };
 		4CEEBA0617FB4D0000252013 /* Penn State Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Penn State Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEEBA0917FB4D0000252013 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4CEEBA0B17FB4D0000252013 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,8 +63,6 @@
 		4CEEBA3A17FB4DC100252013 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		4CEEBA3B17FB4DC100252013 /* RHLDAPSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLDAPSearch.h; sourceTree = "<group>"; };
 		4CEEBA3C17FB4DC100252013 /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
-		4CEEBA4617FB57B700252013 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
-		4CEEBA4717FB57B700252013 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = ../Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +115,15 @@
 			isa = PBXGroup;
 			children = (
 				4CEEBA2C17FB4DC100252013 /* ldap */,
+				4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */,
 				4CEEBA1817FB4D0000252013 /* RGDAppDelegate.h */,
 				4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */,
-				4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */,
+				4C92ECAB17FB68D1003C0F9E /* RGDModel.h */,
+				4C92ECAC17FB68D1003C0F9E /* RGDModel.m */,
+				4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */,
+				4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */,
 				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
 				4CEEBA2517FB4D0000252013 /* RGDViewController.m */,
-				4CEEBA4617FB57B700252013 /* Model.h */,
-				4CEEBA4717FB57B700252013 /* Model.m */,
 				4CEEBA1017FB4D0000252013 /* Supporting Files */,
 			);
 			path = "Penn State Search";
@@ -246,7 +251,8 @@
 				4CEEBA1A17FB4D0000252013 /* RGDAppDelegate.m in Sources */,
 				4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */,
 				4CEEBA4217FB4DC100252013 /* RHLDAPSearch.m in Sources */,
-				4CEEBA4817FB57B700252013 /* Model.m in Sources */,
+				4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */,
+				4C92ECAD17FB68D1003C0F9E /* RGDModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +385,7 @@
 				4CEEBA2B17FB4D0000252013 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

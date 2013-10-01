@@ -7,14 +7,19 @@
 //
 
 #import "RGDViewController.h"
-#import "Model.h"
+#import "RGDSearchViewController.h"
+#import "RGDModel.h"
 
 #define kAccessIDTextFieldTag 2
 #define kKeyboardPortaitHeight 216
 
-@interface RGDViewController () <UITextFieldDelegate>
+@interface RGDViewController () <UITextFieldDelegate, SearchDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UITextField *accessIdField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) Model *model;
+@property (strong, nonatomic) RGDModel *model;
+- (IBAction)searchPressed:(id)sender;
 
 @end
 
@@ -24,13 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _model = [[Model alloc] init];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _model = [[RGDModel alloc] init];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -55,4 +54,21 @@
     [self.scrollView setContentOffset:CGPointZero];
 }
 
+#pragma mark - Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SearchSegue"]) {
+        RGDSearchViewController *searchViewController = segue.destinationViewController;
+        searchViewController.delegate = self;
+    }
+}
+
+-(void)dismissMe
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)searchPressed:(id)sender {
+    [self.model searchWithFirstName:@"Robert" lastName:@"Dick" accessID:@""];
+}
 @end
