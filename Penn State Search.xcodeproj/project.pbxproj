@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0917FB4D0000252013 /* UIKit.framework */; };
+		4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0B17FB4D0000252013 /* Foundation.framework */; };
+		4CEEBA0E17FB4D0000252013 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */; };
+		4CEEBA1417FB4D0000252013 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1217FB4D0000252013 /* InfoPlist.strings */; };
+		4CEEBA1617FB4D0000252013 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1517FB4D0000252013 /* main.m */; };
+		4CEEBA1A17FB4D0000252013 /* RGDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */; };
+		4CEEBA1C17FB4D0000252013 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1B17FB4D0000252013 /* Default.png */; };
+		4CEEBA1E17FB4D0000252013 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1D17FB4D0000252013 /* Default@2x.png */; };
+		4CEEBA2017FB4D0000252013 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
+		4CEEBA2317FB4D0000252013 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */; };
+		4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA2517FB4D0000252013 /* RGDViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4CEEBA0617FB4D0000252013 /* Penn State Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Penn State Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEEBA0917FB4D0000252013 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4CEEBA0B17FB4D0000252013 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4CEEBA1117FB4D0000252013 /* Penn State Search-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Penn State Search-Info.plist"; sourceTree = "<group>"; };
+		4CEEBA1317FB4D0000252013 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4CEEBA1517FB4D0000252013 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CEEBA1717FB4D0000252013 /* Penn State Search-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Penn State Search-Prefix.pch"; sourceTree = "<group>"; };
+		4CEEBA1817FB4D0000252013 /* RGDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGDAppDelegate.h; sourceTree = "<group>"; };
+		4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGDAppDelegate.m; sourceTree = "<group>"; };
+		4CEEBA1B17FB4D0000252013 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4CEEBA1D17FB4D0000252013 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4CEEBA2217FB4D0000252013 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4CEEBA2417FB4D0000252013 /* RGDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGDViewController.h; sourceTree = "<group>"; };
+		4CEEBA2517FB4D0000252013 /* RGDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGDViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CEEBA0317FB4D0000252013 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */,
+				4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */,
+				4CEEBA0E17FB4D0000252013 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CEEB9FD17FB4D0000252013 = {
+			isa = PBXGroup;
+			children = (
+				4CEEBA0F17FB4D0000252013 /* Penn State Search */,
+				4CEEBA0817FB4D0000252013 /* Frameworks */,
+				4CEEBA0717FB4D0000252013 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CEEBA0717FB4D0000252013 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CEEBA0617FB4D0000252013 /* Penn State Search.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CEEBA0817FB4D0000252013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CEEBA0917FB4D0000252013 /* UIKit.framework */,
+				4CEEBA0B17FB4D0000252013 /* Foundation.framework */,
+				4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CEEBA0F17FB4D0000252013 /* Penn State Search */ = {
+			isa = PBXGroup;
+			children = (
+				4CEEBA1817FB4D0000252013 /* RGDAppDelegate.h */,
+				4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */,
+				4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */,
+				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
+				4CEEBA2517FB4D0000252013 /* RGDViewController.m */,
+				4CEEBA1017FB4D0000252013 /* Supporting Files */,
+			);
+			path = "Penn State Search";
+			sourceTree = "<group>";
+		};
+		4CEEBA1017FB4D0000252013 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CEEBA1117FB4D0000252013 /* Penn State Search-Info.plist */,
+				4CEEBA1217FB4D0000252013 /* InfoPlist.strings */,
+				4CEEBA1517FB4D0000252013 /* main.m */,
+				4CEEBA1717FB4D0000252013 /* Penn State Search-Prefix.pch */,
+				4CEEBA1B17FB4D0000252013 /* Default.png */,
+				4CEEBA1D17FB4D0000252013 /* Default@2x.png */,
+				4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CEEBA0517FB4D0000252013 /* Penn State Search */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CEEBA2917FB4D0000252013 /* Build configuration list for PBXNativeTarget "Penn State Search" */;
+			buildPhases = (
+				4CEEBA0217FB4D0000252013 /* Sources */,
+				4CEEBA0317FB4D0000252013 /* Frameworks */,
+				4CEEBA0417FB4D0000252013 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Penn State Search";
+			productName = "Penn State Search";
+			productReference = 4CEEBA0617FB4D0000252013 /* Penn State Search.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CEEB9FE17FB4D0000252013 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RGD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "ROBERT GERALD DICK";
+			};
+			buildConfigurationList = 4CEEBA0117FB4D0000252013 /* Build configuration list for PBXProject "Penn State Search" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4CEEB9FD17FB4D0000252013;
+			productRefGroup = 4CEEBA0717FB4D0000252013 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CEEBA0517FB4D0000252013 /* Penn State Search */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CEEBA0417FB4D0000252013 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEEBA1417FB4D0000252013 /* InfoPlist.strings in Resources */,
+				4CEEBA1C17FB4D0000252013 /* Default.png in Resources */,
+				4CEEBA1E17FB4D0000252013 /* Default@2x.png in Resources */,
+				4CEEBA2017FB4D0000252013 /* Default-568h@2x.png in Resources */,
+				4CEEBA2317FB4D0000252013 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CEEBA0217FB4D0000252013 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEEBA1617FB4D0000252013 /* main.m in Sources */,
+				4CEEBA1A17FB4D0000252013 /* RGDAppDelegate.m in Sources */,
+				4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CEEBA1217FB4D0000252013 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CEEBA1317FB4D0000252013 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CEEBA2217FB4D0000252013 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CEEBA2717FB4D0000252013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4CEEBA2817FB4D0000252013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CEEBA2A17FB4D0000252013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Penn State Search/Penn State Search-Prefix.pch";
+				INFOPLIST_FILE = "Penn State Search/Penn State Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4CEEBA2B17FB4D0000252013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Penn State Search/Penn State Search-Prefix.pch";
+				INFOPLIST_FILE = "Penn State Search/Penn State Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CEEBA0117FB4D0000252013 /* Build configuration list for PBXProject "Penn State Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEEBA2717FB4D0000252013 /* Debug */,
+				4CEEBA2817FB4D0000252013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CEEBA2917FB4D0000252013 /* Build configuration list for PBXNativeTarget "Penn State Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEEBA2A17FB4D0000252013 /* Debug */,
+				4CEEBA2B17FB4D0000252013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CEEB9FE17FB4D0000252013 /* Project object */;
+}
