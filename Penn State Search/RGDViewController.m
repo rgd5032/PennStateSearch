@@ -30,8 +30,24 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _model = [[RGDModel alloc] init];
+    self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.scrollView setContentSize:self.view.frame.size];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.firstNameField.text = @"";
+    self.lastNameField.text = @"";
+    self.accessIdField.text = @"";
+}
+
+-(void)dismissMe
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - Text Field Functions
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -40,10 +56,11 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (textField.tag == kAccessIDTextFieldTag)
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kKeyboardPortaitHeight, 0);
+    [self.scrollView setContentInset:edgeInsets];
+    
+    if (self.view.bounds.size.height - (textField.frame.origin.y + textField.frame.size.height) < kKeyboardPortaitHeight)
     {
-        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kKeyboardPortaitHeight, 0);
-        [self.scrollView setContentInset:edgeInsets];
         [self.scrollView setContentOffset:CGPointMake(0, kKeyboardPortaitHeight)];
     }
 }
@@ -60,15 +77,42 @@
     if ([segue.identifier isEqualToString:@"SearchSegue"]) {
         RGDSearchViewController *searchViewController = segue.destinationViewController;
         searchViewController.delegate = self;
+        searchViewController.model = self.model;
     }
 }
 
--(void)dismissMe
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
+#pragma mark - IBActions
 - (IBAction)searchPressed:(id)sender {
-    [self.model searchWithFirstName:@"Robert" lastName:@"Dick" accessID:@""];
+    NSString *firstName = self.firstNameField.text;
+    NSString *lastName = self.lastNameField.text;
+    NSString *accessId = self.accessIdField.text;
+    
+    if (accessId.length == 0 && lastName.length == 0){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Invalid Entry"
+                                  message:@"Please enter a Last Name and/or Access Id to complete a search."
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    else{
+        [self.model searchWithFirstName:firstName lastName:lastName accessID:accessId];
+        
+        if ([self.model resultsFound]){
+            [self performSegueWithIdentifier:@"SearchSegue" sender:Nil];
+        }
+        else{
+            
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                    initWithTitle:@"No Results"
+                                    message:@"No results were found for your search."
+                                    delegate:nil
+                                    cancelButtonTitle:@"OK"
+                                    otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
 }
+    
 @end

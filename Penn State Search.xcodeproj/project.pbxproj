@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
 		4C92ECAD17FB68D1003C0F9E /* RGDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDModel.m */; };
+		4CDC387217FCF9D90034DB3C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
+		4CDC387317FCF9DF0034DB3C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387017FCF72C0034DB3C /* Default@2x.png */; };
+		4CDC387617FCFF160034DB3C /* psuSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387417FCFF160034DB3C /* psuSearchIcon.png */; };
+		4CDC387717FCFF160034DB3C /* psuSearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387517FCFF160034DB3C /* psuSearchIcon@2x.png */; };
 		4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0917FB4D0000252013 /* UIKit.framework */; };
 		4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0B17FB4D0000252013 /* Foundation.framework */; };
 		4CEEBA0E17FB4D0000252013 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */; };
@@ -16,8 +20,6 @@
 		4CEEBA1617FB4D0000252013 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1517FB4D0000252013 /* main.m */; };
 		4CEEBA1A17FB4D0000252013 /* RGDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */; };
 		4CEEBA1C17FB4D0000252013 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1B17FB4D0000252013 /* Default.png */; };
-		4CEEBA1E17FB4D0000252013 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1D17FB4D0000252013 /* Default@2x.png */; };
-		4CEEBA2017FB4D0000252013 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
 		4CEEBA2317FB4D0000252013 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */; };
 		4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA2517FB4D0000252013 /* RGDViewController.m */; };
 		4CEEBA3D17FB4DC100252013 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA3617FB4DC100252013 /* libcrypto.a */; };
@@ -33,6 +35,10 @@
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
 		4C92ECAB17FB68D1003C0F9E /* RGDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDModel.h; sourceTree = "<group>"; };
 		4C92ECAC17FB68D1003C0F9E /* RGDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDModel.m; sourceTree = "<group>"; };
+		4CDC386E17FCF7200034DB3C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4CDC387017FCF72C0034DB3C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4CDC387417FCFF160034DB3C /* psuSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = psuSearchIcon.png; sourceTree = "<group>"; };
+		4CDC387517FCFF160034DB3C /* psuSearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "psuSearchIcon@2x.png"; sourceTree = "<group>"; };
 		4CEEBA0617FB4D0000252013 /* Penn State Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Penn State Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEEBA0917FB4D0000252013 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4CEEBA0B17FB4D0000252013 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +93,10 @@
 		4CEEB9FD17FB4D0000252013 = {
 			isa = PBXGroup;
 			children = (
+				4CDC387417FCFF160034DB3C /* psuSearchIcon.png */,
+				4CDC387517FCFF160034DB3C /* psuSearchIcon@2x.png */,
+				4CDC387017FCF72C0034DB3C /* Default@2x.png */,
+				4CDC386E17FCF7200034DB3C /* Default-568h@2x.png */,
 				4CEEBA0F17FB4D0000252013 /* Penn State Search */,
 				4CEEBA0817FB4D0000252013 /* Frameworks */,
 				4CEEBA0717FB4D0000252013 /* Products */,
@@ -234,9 +244,11 @@
 			files = (
 				4CEEBA1417FB4D0000252013 /* InfoPlist.strings in Resources */,
 				4CEEBA1C17FB4D0000252013 /* Default.png in Resources */,
-				4CEEBA1E17FB4D0000252013 /* Default@2x.png in Resources */,
-				4CEEBA2017FB4D0000252013 /* Default-568h@2x.png in Resources */,
 				4CEEBA2317FB4D0000252013 /* MainStoryboard.storyboard in Resources */,
+				4CDC387217FCF9D90034DB3C /* Default-568h@2x.png in Resources */,
+				4CDC387317FCF9DF0034DB3C /* Default@2x.png in Resources */,
+				4CDC387617FCFF160034DB3C /* psuSearchIcon.png in Resources */,
+				4CDC387717FCFF160034DB3C /* psuSearchIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

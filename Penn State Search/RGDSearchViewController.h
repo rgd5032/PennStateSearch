@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RGDModel.h"
 
 @protocol SearchDelegate <NSObject>
 
@@ -15,6 +16,7 @@
 @end
 
 
-@interface RGDSearchViewController : UIViewController
-@property (nonatomic,strong) id<SearchDelegate> delegate;
+@interface RGDSearchViewController : UIViewController <UITableViewDataSource>
+@property (strong, nonatomic) id<SearchDelegate> delegate;
+@property (strong, nonatomic) RGDModel *model;
 @end

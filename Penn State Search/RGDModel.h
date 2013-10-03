@@ -10,4 +10,8 @@
 
 @interface RGDModel : NSObject
 -(void)searchWithFirstName:(NSString *)firstName lastName:(NSString *)lastName accessID:(NSString *)aId;
+- (BOOL)resultsFound;
+-(NSInteger)count;
+-(NSString*)displayNameForIndex:(NSInteger)index;
+-(NSString*)detailsForIndex:(NSInteger)index;
 @end

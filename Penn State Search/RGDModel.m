@@ -11,6 +11,7 @@
 
 @interface RGDModel()
 @property (strong, nonatomic) RHLDAPSearch *search;
+@property (strong, nonatomic) NSArray *searchResults;
 
 @end
 
@@ -21,6 +22,7 @@
     self = [super init];
     if (self){
         _search = [[RHLDAPSearch alloc] initWithURL:@"ldap://ldap.psu.edu:389"];
+        self.searchResults = [[NSArray alloc] init];
     }
     
     return self;
@@ -41,9 +43,45 @@
     queryString = [queryString stringByAppendingString: @")"];
     
     NSError *error = [[NSError alloc] init];
-    NSArray *results = [[NSArray alloc] init];
     
-    results = [self.search searchWithQuery:queryString withinBase:@"dc=psu, dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&error];
+    self.searchResults = [self.search searchWithQuery:queryString withinBase:@"dc=psu, dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&error];
+}
+
+-(NSInteger)count
+{
+    return self.searchResults.count;
+}
+
+-(NSString*)displayNameForIndex:(NSInteger)index
+{
+    NSArray *names = [self.searchResults[index] objectForKey:@"displayName"];
+    NSString *name = names[0];
+    return name;
+}
+
+-(NSString*)detailsForIndex:(NSInteger)index
+{
+    NSArray *addresses = [self.searchResults[index] objectForKey:@"postalAddress"];
+    NSString *address = addresses[0];
+    
+    if (address.length == 0){
+        address = @"No Address Available";
+    }
+    else{
+        address = [address stringByReplacingOccurrencesOfString:@"$" withString:@"\n"];
+    }
+    
+    return address;
+}
+
+- (BOOL)resultsFound
+{
+    if (self.searchResults.count == 0){
+        return NO;
+    }
+    else{
+        return YES;
+    }
 }
 
 @end
