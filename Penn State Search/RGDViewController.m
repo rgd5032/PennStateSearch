@@ -10,7 +10,6 @@
 #import "RGDSearchViewController.h"
 #import "RGDModel.h"
 
-#define kAccessIDTextFieldTag 2
 #define kKeyboardPortaitHeight 216
 
 @interface RGDViewController () <UITextFieldDelegate, SearchDelegate>
@@ -45,6 +44,9 @@
 -(void)dismissMe
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.firstNameField resignFirstResponder];
+    [self.lastNameField resignFirstResponder];
+    [self.accessIdField resignFirstResponder];
 }
 
 #pragma mark - Text Field Functions
@@ -90,7 +92,7 @@
     if (accessId.length == 0 && lastName.length == 0){
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Invalid Entry"
-                                  message:@"Please enter a Last Name and/or Access Id to complete a search."
+                                  message:@"Please enter a Last Name and/or Access ID to complete a search."
                                   delegate:nil
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];
