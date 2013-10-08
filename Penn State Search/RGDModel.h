@@ -13,5 +13,7 @@
 - (BOOL)resultsFound;
 -(NSInteger)count;
 -(NSString*)displayNameForIndex:(NSInteger)index;
--(NSString*)detailsForIndex:(NSInteger)index;
+-(NSString*)addressForIndex:(NSInteger)index;
+-(NSString*)emailForIndex:(NSInteger)index;
+-(NSString*)affiliationForIndex:(NSInteger)index;
 @end

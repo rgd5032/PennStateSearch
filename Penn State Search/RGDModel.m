@@ -59,7 +59,7 @@
     return name;
 }
 
--(NSString*)detailsForIndex:(NSInteger)index
+-(NSString*)addressForIndex:(NSInteger)index
 {
     NSArray *addresses = [self.searchResults[index] objectForKey:@"postalAddress"];
     NSString *address = addresses[0];
@@ -72,6 +72,20 @@
     }
     
     return address;
+}
+
+-(NSString*)emailForIndex:(NSInteger)index
+{
+    NSArray *emails = [self.searchResults[index] objectForKey:@"mail"];
+    NSString *email = emails[0];
+    return email;
+}
+
+-(NSString*)affiliationForIndex:(NSInteger)index
+{
+    NSArray *affiliations = [self.searchResults[index] objectForKey:@"eduPersonPrimaryAffiliation"];
+    NSString *affiliation = affiliations[0];
+    return affiliation;
 }
 
 - (BOOL)resultsFound

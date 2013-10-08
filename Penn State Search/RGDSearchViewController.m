@@ -7,10 +7,10 @@
 //
 
 #import "RGDSearchViewController.h"
+#import "RGDDetailViewController.h"
 
 @interface RGDSearchViewController ()
 
-- (IBAction)dismissButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -22,10 +22,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.tableView.dataSource = self;
-}
-
-- (IBAction)dismissButtonPressed:(id)sender {
-    [self.delegate dismissMe];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -47,9 +43,20 @@
     
     // Configure the cell...
     cell.textLabel.text = [self.model displayNameForIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model detailsForIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model addressForIndex:indexPath.row];
     
     return cell;
+}
+
+#pragma mark - Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
+        RGDDetailViewController *detailViewController = segue.destinationViewController;
+        detailViewController.model = self.model;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        detailViewController.resultIndex = indexPath.row;
+    }
 }
 
 @end

@@ -11,8 +11,9 @@
 #import "RGDModel.h"
 
 #define kKeyboardPortaitHeight 216
+#define kNavigationBarPortraitHeight 44
 
-@interface RGDViewController () <UITextFieldDelegate, SearchDelegate>
+@interface RGDViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *accessIdField;
@@ -29,24 +30,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _model = [[RGDModel alloc] init];
-    self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [self.scrollView setContentSize:self.view.frame.size];
+    [self.scrollView setContentSize:self.scrollView.frame.size];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     self.firstNameField.text = @"";
     self.lastNameField.text = @"";
     self.accessIdField.text = @"";
-}
-
--(void)dismissMe
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-    [self.firstNameField resignFirstResponder];
-    [self.lastNameField resignFirstResponder];
-    [self.accessIdField resignFirstResponder];
 }
 
 #pragma mark - Text Field Functions
@@ -58,12 +50,13 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kKeyboardPortaitHeight, 0);
+    CGFloat insetOffsetDistance = kKeyboardPortaitHeight - kNavigationBarPortraitHeight;
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, insetOffsetDistance, 0);
     [self.scrollView setContentInset:edgeInsets];
     
-    if (self.view.bounds.size.height - (textField.frame.origin.y + textField.frame.size.height) < kKeyboardPortaitHeight)
+    if (self.scrollView.bounds.size.height - (textField.frame.origin.y + textField.frame.size.height) < insetOffsetDistance)
     {
-        [self.scrollView setContentOffset:CGPointMake(0, kKeyboardPortaitHeight)];
+        [self.scrollView setContentOffset:CGPointMake(0, insetOffsetDistance)];
     }
 }
 
@@ -78,7 +71,7 @@
 {
     if ([segue.identifier isEqualToString:@"SearchSegue"]) {
         RGDSearchViewController *searchViewController = segue.destinationViewController;
-        searchViewController.delegate = self;
+        //searchViewController.delegate = self;
         searchViewController.model = self.model;
     }
 }
@@ -102,6 +95,7 @@
         [self.model searchWithFirstName:firstName lastName:lastName accessID:accessId];
         
         if ([self.model resultsFound]){
+            [self.view endEditing:YES];
             [self performSegueWithIdentifier:@"SearchSegue" sender:Nil];
         }
         else{
