@@ -8,7 +8,7 @@
 
 #import "RGDViewController.h"
 #import "RGDSearchViewController.h"
-#import "RGDModel.h"
+#import "RGDSearchModel.h"
 
 #define kKeyboardPortaitHeight 216
 #define kNavigationBarPortraitHeight 44
@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *accessIdField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) RGDModel *model;
+@property (strong, nonatomic) RGDSearchModel *model;
 - (IBAction)searchPressed:(id)sender;
 
 @end
@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _model = [[RGDModel alloc] init];
+    _model = [RGDSearchModel sharedInstance];
     [self.scrollView setContentSize:self.scrollView.frame.size];
 }
 
@@ -67,14 +67,12 @@
 }
 
 #pragma mark - Segues
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"SearchSegue"]) {
-        RGDSearchViewController *searchViewController = segue.destinationViewController;
-        //searchViewController.delegate = self;
-        searchViewController.model = self.model;
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"SearchSegue"]) {
+//        RGDSearchViewController *searchViewController = segue.destinationViewController;
+//    }
+//}
 
 #pragma mark - IBActions
 - (IBAction)searchPressed:(id)sender {

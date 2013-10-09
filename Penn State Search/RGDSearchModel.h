@@ -1,5 +1,5 @@
 //
-//  RGDModel.h
+//  RGDSearchModel.h
 //  Penn State Search
 //
 //  Created by ROBERT GERALD DICK on 10/1/13.
@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RGDModel : NSObject
+@interface RGDSearchModel : NSObject
++(id)sharedInstance;
 -(void)searchWithFirstName:(NSString *)firstName lastName:(NSString *)lastName accessID:(NSString *)aId;
 - (BOOL)resultsFound;
--(NSInteger)count;
+-(NSInteger)searchResultsCount;
 -(NSString*)displayNameForIndex:(NSInteger)index;
 -(NSString*)addressForIndex:(NSInteger)index;
 -(NSString*)emailForIndex:(NSInteger)index;
--(NSString*)affiliationForIndex:(NSInteger)index;
+-(NSString*)titleForIndex:(NSInteger)index;
 @end

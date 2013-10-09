@@ -7,11 +7,13 @@
 //
 
 #import "RGDSearchViewController.h"
-#import "RGDDetailViewController.h"
+#import "RGDDetailTableViewController.h"
+#import "RGDSearchModel.h"
 
 @interface RGDSearchViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) RGDSearchModel *model;
 
 @end
 
@@ -21,6 +23,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _model = [RGDSearchModel sharedInstance];
     self.tableView.dataSource = self;
 }
 
@@ -33,7 +36,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.model count];
+    return [self.model searchResultsCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,10 +55,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"DetailSegue"]) {
-        RGDDetailViewController *detailViewController = segue.destinationViewController;
-        detailViewController.model = self.model;
+        RGDDetailTableViewController *detailTableViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        detailViewController.resultIndex = indexPath.row;
+        detailTableViewController.resultIndex = indexPath.row;
     }
 }
 

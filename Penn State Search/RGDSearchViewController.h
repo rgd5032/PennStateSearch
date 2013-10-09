@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RGDModel.h"
 
 @interface RGDSearchViewController : UIViewController <UITableViewDataSource>
-@property (strong, nonatomic) RGDModel *model;
 @end

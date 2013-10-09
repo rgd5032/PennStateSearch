@@ -1,21 +1,30 @@
 //
-//  RGDModel.m
+//  RGDSearchModel.m
 //  Penn State Search
 //
 //  Created by ROBERT GERALD DICK on 10/1/13.
 //  Copyright (c) 2013 ROBERT GERALD DICK. All rights reserved.
 //
 
-#import "RGDModel.h"
+#import "RGDSearchModel.h"
 #import "RHLDAPSearch.h"
 
-@interface RGDModel()
+@interface RGDSearchModel()
 @property (strong, nonatomic) RHLDAPSearch *search;
 @property (strong, nonatomic) NSArray *searchResults;
 
 @end
 
-@implementation RGDModel
+@implementation RGDSearchModel
+
++(id)sharedInstance
+{
+    static id singleton = nil;
+    if (!singleton){
+        singleton = [[self alloc] init];
+    }
+    return singleton;
+}
 
 -(id)init
 {
@@ -27,6 +36,7 @@
     
     return self;
 }
+
 
 -(void)searchWithFirstName:(NSString *)firstName lastName:(NSString *)lastName accessID:(NSString *)aId
 {
@@ -47,7 +57,7 @@
     self.searchResults = [self.search searchWithQuery:queryString withinBase:@"dc=psu, dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&error];
 }
 
--(NSInteger)count
+-(NSInteger)searchResultsCount
 {
     return self.searchResults.count;
 }
@@ -81,11 +91,11 @@
     return email;
 }
 
--(NSString*)affiliationForIndex:(NSInteger)index
+-(NSString*)titleForIndex:(NSInteger)index
 {
-    NSArray *affiliations = [self.searchResults[index] objectForKey:@"eduPersonPrimaryAffiliation"];
-    NSString *affiliation = affiliations[0];
-    return affiliation;
+    NSArray *titles = [self.searchResults[index] objectForKey:@"title"];
+    NSString *title = titles[0];
+    return title;
 }
 
 - (BOOL)resultsFound

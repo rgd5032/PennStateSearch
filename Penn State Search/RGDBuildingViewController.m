@@ -7,10 +7,12 @@
 //
 
 #import "RGDBuildingViewController.h"
+#import "RGDBuildingModel.h"
+#import "RGDBuildingImageViewController.h"
 
 @interface RGDBuildingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *buildings;
+@property (strong, nonatomic) RGDBuildingModel *model;
 @end
 
 @implementation RGDBuildingViewController
@@ -21,12 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.tableView.dataSource = self;
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *path = [mainBundle pathForResource:@"buildings" ofType:@"plist"];
-    _buildings = [[NSArray alloc] initWithContentsOfFile:path];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    NSArray *array = [[NSArray alloc] initWithObjects:descriptor, nil];
-    self.buildings = [self.buildings sortedArrayUsingDescriptors:array];
+    _model = [RGDBuildingModel sharedInstance];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -38,7 +35,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.buildings.count;
+    return [self.model buildingCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -47,27 +44,38 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.buildings[indexPath.row] objectForKey:@"name"];
+    cell.textLabel.text = [self.model buildingNameForIndex:indexPath.row];
     
-    if([[self.buildings[indexPath.row] objectForKey:@"photo"] isEqualToString:@""]){
-        cell.accessoryType = UITableViewCellAccessoryNone;
+    if([self.model imageExistsForBuildingWithIndex:indexPath.row]){
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else{
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
 }
 
-//#pragma mark - Segues
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
-//        RGDDetailViewController *detailViewController = segue.destinationViewController;
-//        detailViewController.model = self.model;
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        detailViewController.resultIndex = indexPath.row;
-//    }
-//}
+#pragma mark - Segues
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)sender;
+    if ([identifier isEqualToString:@"BuildingImageSegue"]){
+        if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
+        {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
+        RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        buildingImageViewController.buildingIndex = indexPath.row;
+    }
+}
 
 @end

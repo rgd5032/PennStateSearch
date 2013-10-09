@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
-		4C92ECAD17FB68D1003C0F9E /* RGDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDModel.m */; };
+		4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */; };
 		4CDC387217FCF9D90034DB3C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
 		4CDC387317FCF9DF0034DB3C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387017FCF72C0034DB3C /* Default@2x.png */; };
 		4CDC387617FCFF160034DB3C /* psuSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387417FCFF160034DB3C /* psuSearchIcon.png */; };
@@ -60,15 +60,17 @@
 		4CEEBA4017FB4DC100252013 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA3917FB4DC100252013 /* libsasl2.a */; };
 		4CEEBA4117FB4DC100252013 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA3A17FB4DC100252013 /* libssl.a */; };
 		4CEEBA4217FB4DC100252013 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEBA3C17FB4DC100252013 /* RHLDAPSearch.m */; };
-		4CF171981804A644004D3066 /* RGDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF171971804A644004D3066 /* RGDDetailViewController.m */; };
+		4CF171981804A644004D3066 /* RGDDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF171971804A644004D3066 /* RGDDetailTableViewController.m */; };
 		4CF1719B1804B79D004D3066 /* RGDBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */; };
+		4CF83C001805E4D100E56B4A /* RGDBuildingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */; };
+		4CF83C031805FD8500E56B4A /* RGDBuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83C021805FD8400E56B4A /* RGDBuildingModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchViewController.h; sourceTree = "<group>"; };
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
-		4C92ECAB17FB68D1003C0F9E /* RGDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDModel.h; sourceTree = "<group>"; };
-		4C92ECAC17FB68D1003C0F9E /* RGDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDModel.m; sourceTree = "<group>"; };
+		4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchModel.h; sourceTree = "<group>"; };
+		4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchModel.m; sourceTree = "<group>"; };
 		4CDC386E17FCF7200034DB3C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4CDC387017FCF72C0034DB3C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4CDC387417FCFF160034DB3C /* psuSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = psuSearchIcon.png; sourceTree = "<group>"; };
@@ -135,10 +137,14 @@
 		4CEEBA3A17FB4DC100252013 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		4CEEBA3B17FB4DC100252013 /* RHLDAPSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLDAPSearch.h; sourceTree = "<group>"; };
 		4CEEBA3C17FB4DC100252013 /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
-		4CF171961804A644004D3066 /* RGDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDDetailViewController.h; sourceTree = "<group>"; };
-		4CF171971804A644004D3066 /* RGDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDDetailViewController.m; sourceTree = "<group>"; };
+		4CF171961804A644004D3066 /* RGDDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDDetailTableViewController.h; sourceTree = "<group>"; };
+		4CF171971804A644004D3066 /* RGDDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDDetailTableViewController.m; sourceTree = "<group>"; };
 		4CF171991804B79D004D3066 /* RGDBuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingViewController.h; sourceTree = "<group>"; };
 		4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingViewController.m; sourceTree = "<group>"; };
+		4CF83BFE1805E4D100E56B4A /* RGDBuildingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingImageViewController.h; sourceTree = "<group>"; };
+		4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingImageViewController.m; sourceTree = "<group>"; };
+		4CF83C011805FD8400E56B4A /* RGDBuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingModel.h; sourceTree = "<group>"; };
+		4CF83C021805FD8400E56B4A /* RGDBuildingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,14 +250,18 @@
 				4CEA25AE18048AA50066D86D /* Buildings */,
 				4CEEBA2C17FB4DC100252013 /* ldap */,
 				4CEEBA2117FB4D0000252013 /* MainStoryboard.storyboard */,
+				4CF83BFE1805E4D100E56B4A /* RGDBuildingImageViewController.h */,
+				4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */,
 				4CEEBA1817FB4D0000252013 /* RGDAppDelegate.h */,
 				4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */,
 				4CF171991804B79D004D3066 /* RGDBuildingViewController.h */,
 				4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */,
-				4CF171961804A644004D3066 /* RGDDetailViewController.h */,
-				4CF171971804A644004D3066 /* RGDDetailViewController.m */,
-				4C92ECAB17FB68D1003C0F9E /* RGDModel.h */,
-				4C92ECAC17FB68D1003C0F9E /* RGDModel.m */,
+				4CF171961804A644004D3066 /* RGDDetailTableViewController.h */,
+				4CF171971804A644004D3066 /* RGDDetailTableViewController.m */,
+				4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */,
+				4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */,
+				4CF83C011805FD8400E56B4A /* RGDBuildingModel.h */,
+				4CF83C021805FD8400E56B4A /* RGDBuildingModel.m */,
 				4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */,
 				4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */,
 				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
@@ -418,9 +428,11 @@
 				4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */,
 				4CEEBA4217FB4DC100252013 /* RHLDAPSearch.m in Sources */,
 				4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */,
-				4C92ECAD17FB68D1003C0F9E /* RGDModel.m in Sources */,
-				4CF171981804A644004D3066 /* RGDDetailViewController.m in Sources */,
+				4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */,
+				4CF171981804A644004D3066 /* RGDDetailTableViewController.m in Sources */,
 				4CF1719B1804B79D004D3066 /* RGDBuildingViewController.m in Sources */,
+				4CF83C001805E4D100E56B4A /* RGDBuildingImageViewController.m in Sources */,
+				4CF83C031805FD8500E56B4A /* RGDBuildingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

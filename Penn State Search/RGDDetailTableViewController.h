@@ -1,5 +1,5 @@
 //
-//  RGDDetailViewController.h
+//  RGDDetailTableViewController.h
 //  Penn State Search
 //
 //  Created by ROBERT GERALD DICK on 10/8/13.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RGDModel.h"
 
-@interface RGDDetailViewController : UIViewController
-@property (strong, nonatomic) RGDModel *model;
+@interface RGDDetailTableViewController : UITableViewController
 @property NSInteger resultIndex;
 @end
