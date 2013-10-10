@@ -127,7 +127,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="oxw-gU-JnJ" kind="push" id="kbN-ac-XSd"/>
+                                            <segue destination="oxw-gU-JnJ" kind="push" identifier="DetailSegue" id="kbN-ac-XSd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -144,22 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QB9-D5-oyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1474" y="170"/>
-        </scene>
-        <!--Detail View Controller - Details-->
-        <scene sceneID="v4T-Ib-66K">
-            <objects>
-                <viewController id="ccC-pR-hfR" customClass="RGDDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Z8P-Pk-10N">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Details" id="VzH-vk-nHb"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wwU-NL-dro" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2272" y="170"/>
         </scene>
         <!--Detail Table View Controller - Details-->
         <scene sceneID="F8v-cz-lCX">
@@ -198,11 +182,11 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Address" id="0Kk-hc-Pny">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddressCell" id="8AB-zT-Z2e">
-                                        <rect key="frame" x="0.0" y="230" width="320" height="46"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddressCell" rowHeight="84" id="8AB-zT-Z2e">
+                                        <rect key="frame" x="0.0" y="230" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -212,7 +196,20 @@
                             <tableViewSection headerTitle="E-mail" id="G8u-xH-8Lw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmailCell" id="ZgR-nX-Inf">
-                                        <rect key="frame" x="0.0" y="322" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="362" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Phone Number" id="8Gy-G0-dA3">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmailCell" id="nIl-UB-tpd">
+                                        <rect key="frame" x="0.0" y="454" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -230,7 +227,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Details" id="5Wc-MY-aqS"/>
                     <connections>
-                        <outlet property="tableView" destination="ITK-Lo-o3U" id="hJX-co-tbA"/>
+                        <outlet property="addressLabel" destination="8AB-zT-Z2e" id="lSw-Mq-hpZ"/>
+                        <outlet property="emailCell" destination="ZgR-nX-Inf" id="0IO-ge-eFX"/>
+                        <outlet property="nameCell" destination="YGG-PN-It2" id="2jE-0p-GBC"/>
+                        <outlet property="numberCell" destination="nIl-UB-tpd" id="2Nl-90-pha"/>
+                        <outlet property="titleCell" destination="2Pb-uF-nLf" id="EQi-ca-5UP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hg-IV-RjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,7 +261,7 @@
         <scene sceneID="14T-ji-Zc6">
             <objects>
                 <navigationController id="SAy-Z1-3V5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Directory" id="SRe-rc-v1Z"/>
+                    <tabBarItem key="tabBarItem" title="Directory" image="111-user.png" id="SRe-rc-v1Z"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ksW-x9-mTS">
@@ -342,8 +343,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="K3Z-6Q-ret"/>
                     <connections>
-                        <outlet property="navigationBar" destination="K3Z-6Q-ret" id="Eu7-as-qvw"/>
-                        <outlet property="navigationItem" destination="K3Z-6Q-ret" id="d6z-kO-MK8"/>
                         <outlet property="scrollView" destination="TI5-kI-kq6" id="frd-wu-P4M"/>
                     </connections>
                 </viewController>
@@ -355,7 +354,7 @@
         <scene sceneID="cJo-1F-fAj">
             <objects>
                 <navigationController id="ywv-1K-O8Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buildings" id="fLo-RH-7Fk"/>
+                    <tabBarItem key="tabBarItem" title="Buildings" image="177-building.png" id="fLo-RH-7Fk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VCc-Ia-dv2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -371,6 +370,50 @@
             <point key="canvasLocation" x="648" y="806"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="111-user.png" width="24" height="21"/>
+        <image name="177-building.png" width="14" height="24"/>
+    </resources>
+    <classes>
+        <class className="RGDBuildingImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGDBuildingImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="RGDBuildingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGDBuildingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RGDDetailTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGDDetailTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="emailCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="nameCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="numberCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="titleCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="RGDSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGDSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RGDViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGDViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="searchPressed:"/>
+                <relationship kind="outlet" name="accessIdField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

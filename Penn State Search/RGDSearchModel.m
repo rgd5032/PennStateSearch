@@ -95,7 +95,20 @@
 {
     NSArray *titles = [self.searchResults[index] objectForKey:@"title"];
     NSString *title = titles[0];
+    if (title.length == 0){
+        title = @"No Title Available";
+    }
     return title;
+}
+
+-(NSString*)numberForIndex:(NSInteger)index
+{
+    NSArray *numbers = [self.searchResults[index] objectForKey:@"telephoneNumber"];
+    NSString *number = numbers[0];
+    if (number.length == 0){
+        number = @"+1 555 NIL DATA";
+    }
+    return number;
 }
 
 - (BOOL)resultsFound

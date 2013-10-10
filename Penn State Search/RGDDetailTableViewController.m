@@ -11,7 +11,11 @@
 
 @interface RGDDetailTableViewController ()
 @property (strong, nonatomic) RGDSearchModel *model;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableViewCell *nameCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *addressLabel;
+@property (weak, nonatomic) IBOutlet UITableViewCell *emailCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *numberCell;
 
 @end
 
@@ -26,31 +30,14 @@
     return self;
 }
 
-//-(void)viewDidLoad
-//{
-//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:0];
-//    cell.textLabel.text = @"Me";
-//}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(void)viewDidLoad
 {
-    // Return the number of sections.
-    return 4;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
-    
-    return cell;
+    self.addressLabel.textLabel.numberOfLines = 0;
+    self.nameCell.textLabel.text = [self.model displayNameForIndex:self.resultIndex];
+    self.titleCell.textLabel.text = [self.model titleForIndex:self.resultIndex];
+    self.addressLabel.textLabel.text = [self.model addressForIndex:self.resultIndex];
+    self.emailCell.textLabel.text = [self.model emailForIndex:self.resultIndex];
+    self.numberCell.textLabel.text = [self.model numberForIndex:self.resultIndex];
 }
 
 @end

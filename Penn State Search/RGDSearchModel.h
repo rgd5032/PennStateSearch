@@ -17,4 +17,5 @@
 -(NSString*)addressForIndex:(NSInteger)index;
 -(NSString*)emailForIndex:(NSInteger)index;
 -(NSString*)titleForIndex:(NSInteger)index;
+-(NSString*)numberForIndex:(NSInteger)index;
 @end

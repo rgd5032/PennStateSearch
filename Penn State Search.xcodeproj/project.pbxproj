@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
 		4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */; };
+		4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1E918076EBF00573361 /* 177-building.png */; };
+		4CC3B1EC18076ECF00573361 /* 111-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1EB18076ECF00573361 /* 111-user.png */; };
 		4CDC387217FCF9D90034DB3C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
 		4CDC387317FCF9DF0034DB3C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387017FCF72C0034DB3C /* Default@2x.png */; };
 		4CDC387617FCFF160034DB3C /* psuSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDC387417FCFF160034DB3C /* psuSearchIcon.png */; };
@@ -71,6 +73,8 @@
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
 		4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchModel.h; sourceTree = "<group>"; };
 		4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchModel.m; sourceTree = "<group>"; };
+		4CC3B1E918076EBF00573361 /* 177-building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building.png"; sourceTree = "<group>"; };
+		4CC3B1EB18076ECF00573361 /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
 		4CDC386E17FCF7200034DB3C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4CDC387017FCF72C0034DB3C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4CDC387417FCFF160034DB3C /* psuSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = psuSearchIcon.png; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		4CEEBA1017FB4D0000252013 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CC3B1EB18076ECF00573361 /* 111-user.png */,
+				4CC3B1E918076EBF00573361 /* 177-building.png */,
 				4CEEBA1117FB4D0000252013 /* Penn State Search-Info.plist */,
 				4CEEBA1217FB4D0000252013 /* InfoPlist.strings */,
 				4CEEBA1517FB4D0000252013 /* main.m */,
@@ -413,6 +419,8 @@
 				4CEA25ED18048AA60066D86D /* engunit.jpg in Resources */,
 				4CEA25EE18048AA60066D86D /* smeal.jpg in Resources */,
 				4CEA25EF18048AA60066D86D /* buildings.plist in Resources */,
+				4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */,
+				4CC3B1EC18076ECF00573361 /* 111-user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

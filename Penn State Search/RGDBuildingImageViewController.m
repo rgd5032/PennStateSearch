@@ -11,19 +11,26 @@
 
 @interface RGDBuildingImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (strong, nonatomic) RGDBuildingModel *model;
 @property (strong, nonatomic) UIImageView *imageView;
 @end
 
 @implementation RGDBuildingImageViewController
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self){
+        _model = [RGDBuildingModel sharedInstance];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    _model = [RGDBuildingModel sharedInstance];
-    self.navigationBar.title = [self.model buildingNameForIndex:self.buildingIndex];
+	// Do any additional setup after loading the view
+    self.title = [self.model buildingNameForIndex:self.buildingIndex];
     
     UIImage *image = [self.model imageForBuildingWithIndex:self.buildingIndex];
     _imageView = [[UIImageView alloc] initWithImage:image];
