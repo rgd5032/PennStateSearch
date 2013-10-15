@@ -9,10 +9,13 @@
 #import "RGDBuildingViewController.h"
 #import "RGDBuildingModel.h"
 #import "RGDBuildingImageViewController.h"
+#import "RGDPreferencesViewController.h"
+#import "kConstants.h"
 
 @interface RGDBuildingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) RGDBuildingModel *model;
+@property BOOL listOnlyBuildingsWithImages;
 @end
 
 @implementation RGDBuildingViewController
@@ -26,6 +29,14 @@
     _model = [RGDBuildingModel sharedInstance];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSNumber *boolNumber = [preferences objectForKey:kShowOnlyBuildingsWithImages];
+    self.listOnlyBuildingsWithImages = [boolNumber boolValue];
+    [self.tableView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -35,6 +46,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (self.listOnlyBuildingsWithImages){
+        return [self.model buildingsWithImagesCount];
+    }
+    
     return [self.model buildingCount];
 }
 
@@ -43,8 +58,13 @@
     static NSString *CellIdentifier = @"Cell";
     static NSString *DisclosureCellIdentifier = @"CellWithDisclosure";
     UITableViewCell *cell;
+    NSInteger index = indexPath.row;
     
-    if([self.model imageExistsForBuildingWithIndex:indexPath.row]){
+    if (self.listOnlyBuildingsWithImages){
+        index = [self.model indexForNextBuildingWithImageStartingAtIndex:index];
+    }
+    
+    if(self.listOnlyBuildingsWithImages || [self.model imageExistsForBuildingWithIndex:index]){
          cell = [tableView dequeueReusableCellWithIdentifier:DisclosureCellIdentifier forIndexPath:indexPath];
     }
     else{
@@ -52,7 +72,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [self.model buildingNameForIndex:indexPath.row];
+    cell.textLabel.text = [self.model buildingNameForIndex:index];
     
     return cell;
 }
@@ -63,7 +83,11 @@
     if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
         RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        buildingImageViewController.buildingIndex = indexPath.row;
+        NSInteger index = indexPath.row;
+        if (self.listOnlyBuildingsWithImages){
+            index = [self.model indexForNextBuildingWithImageStartingAtIndex:index];
+        }
+        buildingImageViewController.buildingIndex = index;
     }
 }
 

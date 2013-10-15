@@ -7,12 +7,14 @@
 //
 
 #import "RGDAppDelegate.h"
+#import "kConstants.h"
 
 @implementation RGDAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences registerDefaults:@{kZoomImages:@YES, kShowOnlyBuildingsWithImages:@NO}];
     return YES;
 }
 							

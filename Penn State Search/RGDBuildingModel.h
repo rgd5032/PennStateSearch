@@ -13,5 +13,7 @@
 -(NSString*)buildingNameForIndex:(NSInteger)index;
 -(UIImage*)imageForBuildingWithIndex:(NSInteger)index;
 -(NSInteger)buildingCount;
+-(NSInteger)buildingsWithImagesCount;
+-(NSInteger)indexForNextBuildingWithImageStartingAtIndex:(NSInteger)index;
 -(BOOL)imageExistsForBuildingWithIndex:(NSInteger)index;
 @end
