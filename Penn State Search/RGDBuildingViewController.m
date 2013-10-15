@@ -41,34 +41,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *DisclosureCellIdentifier = @"CellWithDisclosure";
+    UITableViewCell *cell;
+    
+    if([self.model imageExistsForBuildingWithIndex:indexPath.row]){
+         cell = [tableView dequeueReusableCellWithIdentifier:DisclosureCellIdentifier forIndexPath:indexPath];
+    }
+    else{
+         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    }
     
     // Configure the cell...
     cell.textLabel.text = [self.model buildingNameForIndex:indexPath.row];
-    
-    if([self.model imageExistsForBuildingWithIndex:indexPath.row]){
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
     
     return cell;
 }
 
 #pragma mark - Segues
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    UITableViewCell *cell = (UITableViewCell*)sender;
-    if ([identifier isEqualToString:@"BuildingImageSegue"]){
-        if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
-        {
-            return YES;
-        }
-    }
-    return NO;
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
