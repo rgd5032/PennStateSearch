@@ -7,10 +7,12 @@
 //
 
 #import "RGDBuildingModel.h"
+#import "BuildingInfo.h"
+static NSString * const filename = @"buildings.archive";
 
 @interface RGDBuildingModel()
 
-@property (strong, nonatomic) NSArray *buildings;
+@property (strong, nonatomic) NSMutableArray *buildings;
 
 @end
 
@@ -28,30 +30,67 @@
 -(id)init
 {
     self = [super init];
-    if (self){       
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        NSString *buildingsPath = [mainBundle pathForResource:@"buildings" ofType:@"plist"];
-        _buildings = [[NSArray alloc] initWithContentsOfFile:buildingsPath];
-        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        NSArray *descriptors = [[NSArray alloc] initWithObjects:descriptor, nil];
-        self.buildings = [self.buildings sortedArrayUsingDescriptors:descriptors];
+    if (self){
+        if ([self fileExists]){
+            NSString *path = [self filePath];
+            _buildings = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        }
+        else {
+            NSBundle *mainBundle = [NSBundle mainBundle];
+            NSString *buildingsPath = [mainBundle pathForResource:@"buildings" ofType:@"plist"];
+            NSArray *buildings = [[NSArray alloc] initWithContentsOfFile:buildingsPath];
+            
+            _buildings = [NSMutableArray array];
+            for (NSDictionary *dict in buildings) {
+                BuildingInfo *building = [[BuildingInfo alloc] initWithName:dict[@"name"] oppBuildingCode:dict[@"opp_bldg_code"] yearConstructed:dict[@"year_constructed"] latitude:dict[@"latitude"] logitude:dict[@"longitude"] photoName:dict[@"photo"]];
+                [_buildings addObject:building];
+            }
+            
+            [_buildings sortUsingComparator: ^(BuildingInfo *bldg1, BuildingInfo *bldg2){
+                if ([bldg1.name compare:bldg2.name] > 0) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                 
+                if ([bldg1.name compare:bldg2.name] < 0) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
+            
+            [NSKeyedArchiver archiveRootObject:_buildings toFile:[self filePath]];
+        }
     }
     
     return self;
 }
 
+
+#pragma mark - File System
+-(NSString*)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+-(NSString *)filePath {
+    return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filename];
+}
+
+-(BOOL)fileExists {
+    NSString *path = [self filePath];
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
+
+#pragma mark - Public methods
 -(NSString*)buildingNameForIndex:(NSInteger)index
 {
-    NSString *name = [self.buildings[index] objectForKey:@"name"];
-    return name;
+    BuildingInfo *bldg = self.buildings[index];
+    return bldg.name;
 }
 
 -(UIImage*)imageForBuildingWithIndex:(NSInteger)index
 {
-    NSString *imageName = [self.buildings[index] objectForKey:@"photo"];
-    imageName = [imageName stringByAppendingString:@".jpg"];
-    UIImage *image = [UIImage imageNamed:imageName];
-    return image;
+    BuildingInfo *bldg = self.buildings[index];
+    return bldg.photo;
 }
 
 -(NSInteger)buildingCount
@@ -62,9 +101,8 @@
 -(NSInteger)buildingsWithImagesCount
 {
     NSInteger count = 0;
-    for (NSDictionary *building in self.buildings) {
-        NSString *photoName = [building objectForKey:@"photo"];
-        if (photoName.length != 0){
+    for (BuildingInfo *bldg in self.buildings) {
+        if (bldg.photo != nil){
             count++;
         }
     }
@@ -74,8 +112,8 @@
 
 -(BOOL)imageExistsForBuildingWithIndex:(NSInteger)index
 {
-    NSString *photoName = [self.buildings[index] objectForKey:@"photo"];
-    if (photoName.length == 0){
+    BuildingInfo *bldg = self.buildings[index];
+    if (bldg.photo == nil){
         return NO;
     }
     else{
@@ -83,11 +121,15 @@
     }
 }
 
-// THIS DOESN'T WORK -> for i = 1..7 it will return index 7.  Want it to return 1st with image, then 2nd with image.
--(NSInteger)indexForNextBuildingWithImageStartingAtIndex:(NSInteger)index
+-(NSInteger)indexForBuildingWithImageNumber:(NSInteger)number
 {
-    for (int i = index; i < self.buildings.count; i++){
+    NSInteger imagesFound = 0;
+    
+    for (int i = 0; i < self.buildings.count; i++){
         if ([self imageExistsForBuildingWithIndex:i]){
+            imagesFound++;
+        }
+        if (imagesFound == (number+1)){
             return i;
         }
     }

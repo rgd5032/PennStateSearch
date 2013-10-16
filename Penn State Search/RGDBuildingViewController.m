@@ -61,7 +61,7 @@
     NSInteger index = indexPath.row;
     
     if (self.listOnlyBuildingsWithImages){
-        index = [self.model indexForNextBuildingWithImageStartingAtIndex:index];
+        index = [self.model indexForBuildingWithImageNumber:index];
     }
     
     if(self.listOnlyBuildingsWithImages || [self.model imageExistsForBuildingWithIndex:index]){
@@ -85,7 +85,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSInteger index = indexPath.row;
         if (self.listOnlyBuildingsWithImages){
-            index = [self.model indexForNextBuildingWithImageStartingAtIndex:index];
+            index = [self.model indexForBuildingWithImageNumber:index];
         }
         buildingImageViewController.buildingIndex = index;
     }
