@@ -51,6 +51,6 @@
     [preferences setBool:self.buildingListSwitch.isOn forKey:kShowOnlyBuildingsWithImages];
     [preferences synchronize];
     
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    self.CompletionBlock();
 }
 @end

@@ -348,7 +348,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="crK-Vc-cyw" kind="modal" id="huC-pi-nyE"/>
+                                    <segue destination="crK-Vc-cyw" kind="modal" identifier="PreferencesSegue" id="huC-pi-nyE"/>
                                 </connections>
                             </button>
                         </barButtonItem>

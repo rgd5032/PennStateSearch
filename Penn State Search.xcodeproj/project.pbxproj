@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4C4BDF70180DD176001C9393 /* kConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF6F180DD176001C9393 /* kConstants.m */; };
 		4C4BDF73180DD6ED001C9393 /* RGDPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */; };
+		4C61CEEA1818544700F0CCE3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CEE51818544700F0CCE3 /* DataManager.m */; };
+		4C61CEEB1818544700F0CCE3 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CEE81818544700F0CCE3 /* DataSource.m */; };
+		4C61CF1B1818582300F0CCE3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C61CF1A1818582300F0CCE3 /* CoreData.framework */; };
+		4C61CF1E1818593400F0CCE3 /* Buildings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */; };
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
 		4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */; };
 		4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1E918076EBF00573361 /* 177-building.png */; };
@@ -76,6 +80,14 @@
 		4C4BDF6F180DD176001C9393 /* kConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kConstants.m; sourceTree = "<group>"; };
 		4C4BDF71180DD6ED001C9393 /* RGDPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDPreferencesViewController.h; sourceTree = "<group>"; };
 		4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDPreferencesViewController.m; sourceTree = "<group>"; };
+		4C61CEE41818544700F0CCE3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		4C61CEE51818544700F0CCE3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		4C61CEE61818544700F0CCE3 /* DataManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManagerDelegate.h; sourceTree = "<group>"; };
+		4C61CEE71818544700F0CCE3 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		4C61CEE81818544700F0CCE3 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		4C61CEE91818544700F0CCE3 /* DataSourceCellConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceCellConfigurer.h; sourceTree = "<group>"; };
+		4C61CF1A1818582300F0CCE3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C61CF1D1818593400F0CCE3 /* Buildings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buildings.xcdatamodel; sourceTree = "<group>"; };
 		4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchViewController.h; sourceTree = "<group>"; };
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
 		4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchModel.h; sourceTree = "<group>"; };
@@ -165,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C61CF1B1818582300F0CCE3 /* CoreData.framework in Frameworks */,
 				4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */,
 				4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */,
 				4CEEBA0E17FB4D0000252013 /* CoreGraphics.framework in Frameworks */,
@@ -182,12 +195,19 @@
 		4C989016180DD95400ABDAA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4C61CEE41818544700F0CCE3 /* DataManager.h */,
+				4C61CEE51818544700F0CCE3 /* DataManager.m */,
+				4C61CEE61818544700F0CCE3 /* DataManagerDelegate.h */,
+				4C61CEE71818544700F0CCE3 /* DataSource.h */,
+				4C61CEE81818544700F0CCE3 /* DataSource.m */,
+				4C61CEE91818544700F0CCE3 /* DataSourceCellConfigurer.h */,
 				4CF83C011805FD8400E56B4A /* RGDBuildingModel.h */,
 				4CF83C021805FD8400E56B4A /* RGDBuildingModel.m */,
 				4CF44F32180F16DE000BF031 /* BuildingInfo.h */,
 				4CF44F33180F16DE000BF031 /* BuildingInfo.m */,
 				4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */,
 				4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */,
+				4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -250,6 +270,7 @@
 		4CEEB9FD17FB4D0000252013 = {
 			isa = PBXGroup;
 			children = (
+				4C61CF1A1818582300F0CCE3 /* CoreData.framework */,
 				4CDC387417FCFF160034DB3C /* psuSearchIcon.png */,
 				4CDC387517FCFF160034DB3C /* psuSearchIcon@2x.png */,
 				4CDC387017FCF72C0034DB3C /* Default@2x.png */,
@@ -475,6 +496,9 @@
 				4C4BDF70180DD176001C9393 /* kConstants.m in Sources */,
 				4C4BDF73180DD6ED001C9393 /* RGDPreferencesViewController.m in Sources */,
 				4CF44F34180F16DE000BF031 /* BuildingInfo.m in Sources */,
+				4C61CEEA1818544700F0CCE3 /* DataManager.m in Sources */,
+				4C61CEEB1818544700F0CCE3 /* DataSource.m in Sources */,
+				4C61CF1E1818593400F0CCE3 /* Buildings.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +634,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C61CF1D1818593400F0CCE3 /* Buildings.xcdatamodel */,
+			);
+			currentVersion = 4C61CF1D1818593400F0CCE3 /* Buildings.xcdatamodel */;
+			path = Buildings.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4CEEB9FE17FB4D0000252013 /* Project object */;
 }

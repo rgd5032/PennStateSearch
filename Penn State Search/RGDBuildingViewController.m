@@ -89,6 +89,10 @@
         }
         buildingImageViewController.buildingIndex = index;
     }
+    else if ([segue.identifier isEqualToString:@"PreferencesSegue"]) {
+        RGDPreferencesViewController *preferencesViewController = segue.destinationViewController;
+        preferencesViewController.CompletionBlock = ^{[self dismissViewControllerAnimated:YES completion:NULL];};
+    }
 }
 
 @end

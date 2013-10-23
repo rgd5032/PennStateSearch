@@ -58,7 +58,7 @@ static NSString * const filename = @"buildings.archive";
             }];
             
             [NSKeyedArchiver archiveRootObject:_buildings toFile:[self filePath]];
-        }
+       }
     }
     
     return self;

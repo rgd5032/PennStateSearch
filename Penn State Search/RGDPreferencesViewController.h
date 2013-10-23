@@ -10,4 +10,6 @@
 
 @interface RGDPreferencesViewController : UIViewController
 
+@property (nonatomic,copy) void (^CompletionBlock)(void);
+
 @end
