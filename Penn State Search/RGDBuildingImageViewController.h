@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RGDBuildingImageViewController : UIViewController
-@property NSInteger buildingIndex;
+@property (strong, nonatomic) UIImage *image;
+@property NSString *imageTitle;
 @end

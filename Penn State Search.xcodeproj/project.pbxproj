@@ -71,6 +71,8 @@
 		4CF171981804A644004D3066 /* RGDDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF171971804A644004D3066 /* RGDDetailTableViewController.m */; };
 		4CF1719B1804B79D004D3066 /* RGDBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */; };
 		4CF44F34180F16DE000BF031 /* BuildingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF44F33180F16DE000BF031 /* BuildingInfo.m */; };
+		4CF5FC191818889400A1DA60 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5FC181818889400A1DA60 /* Building.m */; };
+		4CF5FC1C18188A6C00A1DA60 /* MyDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5FC1B18188A6C00A1DA60 /* MyDataManager.m */; };
 		4CF83C001805E4D100E56B4A /* RGDBuildingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */; };
 		4CF83C031805FD8500E56B4A /* RGDBuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83C021805FD8400E56B4A /* RGDBuildingModel.m */; };
 /* End PBXBuildFile section */
@@ -166,6 +168,10 @@
 		4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingViewController.m; sourceTree = "<group>"; };
 		4CF44F32180F16DE000BF031 /* BuildingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInfo.h; sourceTree = "<group>"; };
 		4CF44F33180F16DE000BF031 /* BuildingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInfo.m; sourceTree = "<group>"; };
+		4CF5FC171818889400A1DA60 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		4CF5FC181818889400A1DA60 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		4CF5FC1A18188A6C00A1DA60 /* MyDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataManager.h; sourceTree = "<group>"; };
+		4CF5FC1B18188A6C00A1DA60 /* MyDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataManager.m; sourceTree = "<group>"; };
 		4CF83BFE1805E4D100E56B4A /* RGDBuildingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingImageViewController.h; sourceTree = "<group>"; };
 		4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingImageViewController.m; sourceTree = "<group>"; };
 		4CF83C011805FD8400E56B4A /* RGDBuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingModel.h; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 				4C61CEE41818544700F0CCE3 /* DataManager.h */,
 				4C61CEE51818544700F0CCE3 /* DataManager.m */,
 				4C61CEE61818544700F0CCE3 /* DataManagerDelegate.h */,
+				4CF5FC1A18188A6C00A1DA60 /* MyDataManager.h */,
+				4CF5FC1B18188A6C00A1DA60 /* MyDataManager.m */,
 				4C61CEE71818544700F0CCE3 /* DataSource.h */,
 				4C61CEE81818544700F0CCE3 /* DataSource.m */,
 				4C61CEE91818544700F0CCE3 /* DataSourceCellConfigurer.h */,
@@ -208,6 +216,8 @@
 				4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */,
 				4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */,
 				4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */,
+				4CF5FC171818889400A1DA60 /* Building.h */,
+				4CF5FC181818889400A1DA60 /* Building.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -499,6 +509,8 @@
 				4C61CEEA1818544700F0CCE3 /* DataManager.m in Sources */,
 				4C61CEEB1818544700F0CCE3 /* DataSource.m in Sources */,
 				4C61CF1E1818593400F0CCE3 /* Buildings.xcdatamodeld in Sources */,
+				4CF5FC191818889400A1DA60 /* Building.m in Sources */,
+				4CF5FC1C18188A6C00A1DA60 /* MyDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

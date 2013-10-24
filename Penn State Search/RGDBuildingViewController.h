@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataSourceCellConfigurer.h"
 
-@interface RGDBuildingViewController : UIViewController <UITableViewDataSource>
+@interface RGDBuildingViewController : UIViewController <DataSourceCellConfigurer>
 @end

@@ -7,12 +7,12 @@
 //
 
 #import "RGDBuildingImageViewController.h"
-#import "RGDBuildingModel.h"
+//#import "RGDBuildingModel.h"
 #import "kConstants.h"
 
 @interface RGDBuildingImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) RGDBuildingModel *model;
+//@property (strong, nonatomic) RGDBuildingModel *model;
 @property (strong, nonatomic) UIImageView *imageView;
 @property BOOL zoomImages;
 @end
@@ -23,7 +23,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self){
-        _model = [RGDBuildingModel sharedInstance];
+//        _model = [RGDBuildingModel sharedInstance];
     }
     return self;
 }
@@ -37,21 +37,19 @@
     NSNumber *boolNumber = [preferences objectForKey:kZoomImages];
     self.zoomImages = [boolNumber boolValue];
     
-    self.title = [self.model buildingNameForIndex:self.buildingIndex];
-    
-    UIImage *image = [self.model imageForBuildingWithIndex:self.buildingIndex];
-    _imageView = [[UIImageView alloc] initWithImage:image];
+    self.title = self.imageTitle;
+    _imageView = [[UIImageView alloc] initWithImage:self.image];
     [self.scrollView   addSubview:self.imageView];
     
-    self.scrollView.contentSize = image.size;
+    self.scrollView.contentSize = self.image.size;
     
     if (self.zoomImages){
         self.scrollView.maximumZoomScale = 2.0;
     }
     else {
-        self.scrollView.maximumZoomScale = self.scrollView.bounds.size.width/image.size.width;
+        self.scrollView.maximumZoomScale = self.scrollView.bounds.size.width/self.image.size.width;
     }
-    self.scrollView.minimumZoomScale = self.scrollView.bounds.size.width/image.size.width;
+    self.scrollView.minimumZoomScale = self.scrollView.bounds.size.width/self.image.size.width;
     self.scrollView.bounces = YES;
     self.scrollView.bouncesZoom = NO;
     
