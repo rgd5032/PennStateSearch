@@ -7,7 +7,6 @@
 //
 
 #import "RGDBuildingViewController.h"
-//#import "RGDBuildingModel.h"
 #import "RGDBuildingImageViewController.h"
 #import "RGDPreferencesViewController.h"
 #import "kConstants.h"
@@ -17,7 +16,6 @@
 
 @interface RGDBuildingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-//@property (strong, nonatomic) RGDBuildingModel *model;
 @property BOOL listOnlyBuildingsWithImages;
 @property (nonatomic,strong) DataSource *dataSource;
 @end
@@ -40,7 +38,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.tableView.dataSource = self.dataSource;
-    //_model = [RGDBuildingModel sharedInstance];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -76,47 +73,6 @@
     return NO;
 }
 
-#pragma mark - Table View Data Source
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    // Return the number of sections.
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    // Return the number of rows in the section.
-//    if (self.listOnlyBuildingsWithImages){
-//        return [self.model buildingsWithImagesCount];
-//    }
-//    
-//    return [self.model buildingCount];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    static NSString *DisclosureCellIdentifier = @"CellWithDisclosure";
-//    UITableViewCell *cell;
-//    NSInteger index = indexPath.row;
-//    
-//    if (self.listOnlyBuildingsWithImages){
-//        index = [self.model indexForBuildingWithImageNumber:index];
-//    }
-//    
-//    if(self.listOnlyBuildingsWithImages || [self.model imageExistsForBuildingWithIndex:index]){
-//         cell = [tableView dequeueReusableCellWithIdentifier:DisclosureCellIdentifier forIndexPath:indexPath];
-//    }
-//    else{
-//         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    }
-//    
-//    // Configure the cell...
-//    cell.textLabel.text = [self.model buildingNameForIndex:index];
-//    
-//    return cell;
-//}
-
 #pragma mark - Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -124,11 +80,6 @@
         RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Building *building = [self.dataSource objectAtIndexPath:indexPath];
-//        NSInteger index = indexPath.row;
-//        if (self.listOnlyBuildingsWithImages){
-//            index = [self.model indexForBuildingWithImageNumber:index];
-//        }
-//        buildingImageViewController.buildingIndex = index;
         buildingImageViewController.image = [[UIImage alloc] initWithData:building.photo];
         buildingImageViewController.imageTitle = building.name;
     }
