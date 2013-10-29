@@ -13,6 +13,8 @@
 		4C61CEEB1818544700F0CCE3 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CEE81818544700F0CCE3 /* DataSource.m */; };
 		4C61CF1B1818582300F0CCE3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C61CF1A1818582300F0CCE3 /* CoreData.framework */; };
 		4C61CF1E1818593400F0CCE3 /* Buildings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */; };
+		4C8CEA3118204898004BF916 /* Building+Name.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CEA3018204898004BF916 /* Building+Name.m */; };
+		4C8CEA3418204D0B004BF916 /* RGDBuildingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CEA3318204D0B004BF916 /* RGDBuildingInfoViewController.m */; };
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
 		4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */; };
 		4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1E918076EBF00573361 /* 177-building.png */; };
@@ -88,6 +90,10 @@
 		4C61CEE91818544700F0CCE3 /* DataSourceCellConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceCellConfigurer.h; sourceTree = "<group>"; };
 		4C61CF1A1818582300F0CCE3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C61CF1D1818593400F0CCE3 /* Buildings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buildings.xcdatamodel; sourceTree = "<group>"; };
+		4C8CEA2F18204898004BF916 /* Building+Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Building+Name.h"; sourceTree = "<group>"; };
+		4C8CEA3018204898004BF916 /* Building+Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Building+Name.m"; sourceTree = "<group>"; };
+		4C8CEA3218204D0B004BF916 /* RGDBuildingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingInfoViewController.h; sourceTree = "<group>"; };
+		4C8CEA3318204D0B004BF916 /* RGDBuildingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingInfoViewController.m; sourceTree = "<group>"; };
 		4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchViewController.h; sourceTree = "<group>"; };
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
 		4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchModel.h; sourceTree = "<group>"; };
@@ -192,9 +198,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C8CEA3518204D30004BF916 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C8CEA3218204D0B004BF916 /* RGDBuildingInfoViewController.h */,
+				4C8CEA3318204D0B004BF916 /* RGDBuildingInfoViewController.m */,
+				4C4BDF71180DD6ED001C9393 /* RGDPreferencesViewController.h */,
+				4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */,
+				4CF83BFE1805E4D100E56B4A /* RGDBuildingImageViewController.h */,
+				4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */,
+				4CF171991804B79D004D3066 /* RGDBuildingViewController.h */,
+				4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */,
+				4CF171961804A644004D3066 /* RGDDetailTableViewController.h */,
+				4CF171971804A644004D3066 /* RGDDetailTableViewController.m */,
+				4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */,
+				4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */,
+				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
+				4CEEBA2517FB4D0000252013 /* RGDViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		4C989016180DD95400ABDAA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4CEA25AE18048AA50066D86D /* Buildings */,
 				4C61CEE41818544700F0CCE3 /* DataManager.h */,
 				4C61CEE51818544700F0CCE3 /* DataManager.m */,
 				4C61CEE61818544700F0CCE3 /* DataManagerDelegate.h */,
@@ -208,6 +236,8 @@
 				4C61CF1C1818593400F0CCE3 /* Buildings.xcdatamodeld */,
 				4CF5FC171818889400A1DA60 /* Building.h */,
 				4CF5FC181818889400A1DA60 /* Building.m */,
+				4C8CEA2F18204898004BF916 /* Building+Name.h */,
+				4C8CEA3018204898004BF916 /* Building+Name.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -302,22 +332,10 @@
 		4CEEBA0F17FB4D0000252013 /* Penn State Search */ = {
 			isa = PBXGroup;
 			children = (
+				4CEEBA2C17FB4DC100252013 /* ldap */,
 				4C989017180DD97100ABDAA6 /* Views */,
 				4C989016180DD95400ABDAA6 /* Models */,
-				4CEA25AE18048AA50066D86D /* Buildings */,
-				4CEEBA2C17FB4DC100252013 /* ldap */,
-				4C4BDF71180DD6ED001C9393 /* RGDPreferencesViewController.h */,
-				4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */,
-				4CF83BFE1805E4D100E56B4A /* RGDBuildingImageViewController.h */,
-				4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */,
-				4CF171991804B79D004D3066 /* RGDBuildingViewController.h */,
-				4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */,
-				4CF171961804A644004D3066 /* RGDDetailTableViewController.h */,
-				4CF171971804A644004D3066 /* RGDDetailTableViewController.m */,
-				4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */,
-				4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */,
-				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
-				4CEEBA2517FB4D0000252013 /* RGDViewController.m */,
+				4C8CEA3518204D30004BF916 /* Controllers */,
 				4CEEBA1017FB4D0000252013 /* Supporting Files */,
 			);
 			path = "Penn State Search";
@@ -499,6 +517,8 @@
 				4C61CF1E1818593400F0CCE3 /* Buildings.xcdatamodeld in Sources */,
 				4CF5FC191818889400A1DA60 /* Building.m in Sources */,
 				4CF5FC1C18188A6C00A1DA60 /* MyDataManager.m in Sources */,
+				4C8CEA3118204898004BF916 /* Building+Name.m in Sources */,
+				4C8CEA3418204D0B004BF916 /* RGDBuildingInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

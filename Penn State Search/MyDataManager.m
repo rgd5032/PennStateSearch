@@ -32,6 +32,7 @@
         building.year_constructed = [dictionary objectForKey:@"year_constructed"];
         building.latitude = [dictionary objectForKey:@"latitude"];
         building.longitude = [dictionary objectForKey:@"longitude"];
+        building.info = [dictionary objectForKey:@"info"];
         NSString *imageName = [dictionary objectForKey:@"photo"];
         imageName = [imageName stringByAppendingString:@".jpg"];
         UIImage *image = [UIImage imageNamed:imageName];

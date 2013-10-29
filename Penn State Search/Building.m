@@ -11,6 +11,7 @@
 
 @implementation Building
 
+@dynamic info;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic name;

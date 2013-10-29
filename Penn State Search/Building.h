@@ -12,6 +12,7 @@
 
 @interface Building : NSManagedObject
 
+@property (nonatomic, retain) NSString *info;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;

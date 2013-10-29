@@ -8,10 +8,12 @@
 
 #import "RGDBuildingViewController.h"
 #import "RGDBuildingImageViewController.h"
+#import "RGDBuildingInfoViewController.h"
 #import "RGDPreferencesViewController.h"
 #import "kConstants.h"
 #import "MyDataManager.h"
 #import "DataSource.h"
+#import "DataManager.h"
 #import "Building.h"
 
 @interface RGDBuildingViewController ()
@@ -26,7 +28,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         MyDataManager *myDataManger = [[MyDataManager alloc] init];
-        _dataSource = [[DataSource alloc] initForEntity:@"Building" sortKeys:@[@"name"] predicate:nil sectionNameKeyPath:nil dataManagerDelegate:myDataManger];
+        _dataSource = [[DataSource alloc] initForEntity:@"Building" sortKeys:@[@"name"] predicate:nil sectionNameKeyPath:@"firstLetterOfName" dataManagerDelegate:myDataManger];
         
         _dataSource.delegate = self;
     }
@@ -59,8 +61,9 @@
 #pragma mark - Data Source Cell Configurer
 
 -(NSString*)cellIdentifierForObject:(id)object {
-    Building *building = (Building *)object;
-    return building.photo == nil ? @"Cell" : @"CellWithDisclosure";
+//    Building *building = (Building *)object;
+//    return building.photo == nil ? @"Cell" : @"CellWithDisclosure";
+    return @"CellWithDisclosure";
 }
 
 -(void)configureCell:(UITableViewCell *)cell withObject:(id)object {
@@ -76,13 +79,26 @@
 #pragma mark - Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
-        RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
+//    if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
+//        RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        Building *building = [self.dataSource objectAtIndexPath:indexPath];
+//        buildingImageViewController.image = [[UIImage alloc] initWithData:building.photo];
+//        buildingImageViewController.imageTitle = building.name;
+//    }
+    if ([segue.identifier isEqualToString:@"BuildingInfoSegue"]) {
+        RGDBuildingInfoViewController *buildingInfoViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Building *building = [self.dataSource objectAtIndexPath:indexPath];
-        buildingImageViewController.image = [[UIImage alloc] initWithData:building.photo];
-        buildingImageViewController.imageTitle = building.name;
+        __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        
+        buildingInfoViewController.infoString = building.info;
+        buildingInfoViewController.completionBlock = ^(id obj){
+            NSString *newInfo = obj;
+            building.info = newInfo;
+            [[DataManager sharedInstance] saveContext];
+        };
     }
+
     else if ([segue.identifier isEqualToString:@"PreferencesSegue"]) {
         RGDPreferencesViewController *preferencesViewController = segue.destinationViewController;
         preferencesViewController.CompletionBlock = ^{[self dismissViewControllerAnimated:YES completion:NULL];};
