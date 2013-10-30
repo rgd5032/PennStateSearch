@@ -12,11 +12,13 @@
 
 @implementation MyDataManager
 
--(NSString*)xcDataModelName {
+-(NSString*)xcDataModelName
+{
     return @"Buildings";
 }
 
--(void)createDatabaseFor:(DataManager *)dataManager {
+-(void)createDatabaseFor:(DataManager *)dataManager
+{
     
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *plistPath = [bundle pathForResource:@"buildings" ofType:@"plist"];
@@ -42,5 +44,16 @@
     [dataManager saveContext];
 }
 
+-(void)addBuilding:(NSDictionary*)dictionary
+{
+    DataManager *dataManager = [DataManager sharedInstance];
+    NSManagedObjectContext *managedObjectContext = dataManager.managedObjectContext;
+    
+    Building *building = [NSEntityDescription insertNewObjectForEntityForName:@"Building" inManagedObjectContext:managedObjectContext];
+    
+    building.name = [dictionary objectForKey:@"name"];
+    building.info = [dictionary objectForKey:@"info"];
+    [dataManager saveContext];
+}
 
 @end

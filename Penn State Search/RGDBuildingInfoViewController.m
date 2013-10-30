@@ -7,11 +7,13 @@
 //
 
 #import "RGDBuildingInfoViewController.h"
+#import "RGDBuildingImageViewController.h"
 
-#define kTextViewTopAndBottomMarginTotal 40
+#define kTextViewTopAndBottomMarginTotal 36
 
 @interface RGDBuildingInfoViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -31,8 +33,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.textView.text = self.infoString;
+    self.nameLabel.text = self.buildingName;
     
-    self.navigationItem.rightBarButtonItems = @[self.editButtonItem];
+    if (self.buildingImage != nil){
+        self.navigationItem.rightBarButtonItems = @[self.editButtonItem, self.navigationItem.rightBarButtonItem];
+    }
+    else{
+        self.navigationItem.rightBarButtonItems = @[self.editButtonItem];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
@@ -50,12 +58,12 @@
     NSDictionary *info = notification.userInfo;
     CGRect frame = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGSize keyboardSize = frame.size;
-    self.textView.frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.x, self.textView.bounds.size.width, self.textView.frame.size.height - (keyboardSize.height - kTabBarHeight));
+    self.textView.frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y, self.textView.bounds.size.width, self.textView.frame.size.height - (keyboardSize.height - kTabBarHeight));
 }
 
 -(void)keyboardWillBeHidden:(NSNotification*)notification {
     
-    self.textView.frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.x, self.textView.bounds.size.width, self.view.bounds.size.height - kTextViewTopAndBottomMarginTotal);
+    self.textView.frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y, self.textView.bounds.size.width, self.view.bounds.size.height - kTextViewTopAndBottomMarginTotal);
 }
 
 -(void)updateTextView {
@@ -99,15 +107,17 @@
 //    [self.navigationItem setLeftBarButtonItem:nil];
 //}
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"FlagModalSegue"]) {  // iPhone
-//        JJHFlagViewController *flagViewController = segue.destinationViewController;
-//        flagViewController.flagImage = self.flagImage;
-//        flagViewController.completionBlock = ^(id obj){
-//            [self dismissViewControllerAnimated:YES completion:NULL];
-//        };
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
+        RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
+        buildingImageViewController.image = self.buildingImage;
+        buildingImageViewController.imageTitle = self.buildingName;
+        buildingImageViewController.completionBlock = ^(id obj){
+            [self dismissViewControllerAnimated:true completion:NULL];
+        };
+
+    }
+}
 
 
 @end

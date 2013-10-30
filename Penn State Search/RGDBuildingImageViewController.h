@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RGDBuildingImageViewController : UIViewController
+
 @property (strong, nonatomic) UIImage *image;
 @property NSString *imageTitle;
+@property (nonatomic,copy) CompletionBlock completionBlock;
 @end

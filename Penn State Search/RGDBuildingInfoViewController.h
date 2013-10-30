@@ -11,7 +11,8 @@
 @interface RGDBuildingInfoViewController : UIViewController
 
 @property (nonatomic,strong) NSString *infoString;
-@property (nonatomic,strong) UIImage *flagImage;
+@property (nonatomic,strong) UIImage *buildingImage;
+@property (nonatomic,strong) NSString *buildingName;
 
 @property (nonatomic,copy) CompletionBlock completionBlock;
 

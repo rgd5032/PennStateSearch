@@ -17,6 +17,8 @@
 		4C8CEA3418204D0B004BF916 /* RGDBuildingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CEA3318204D0B004BF916 /* RGDBuildingInfoViewController.m */; };
 		4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */; };
 		4C92ECAD17FB68D1003C0F9E /* RGDSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */; };
+		4CBA1A1218219EB600AE316D /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CBA1A1118219EB600AE316D /* 19-gear.png */; };
+		4CBA1A151821A80400AE316D /* RGDAddBuildingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBA1A141821A80400AE316D /* RGDAddBuildingTableViewController.m */; };
 		4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1E918076EBF00573361 /* 177-building.png */; };
 		4CC3B1EC18076ECF00573361 /* 111-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3B1EB18076ECF00573361 /* 111-user.png */; };
 		4CDC387217FCF9D90034DB3C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F17FB4D0000252013 /* Default-568h@2x.png */; };
@@ -98,6 +100,9 @@
 		4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchViewController.m; sourceTree = "<group>"; };
 		4C92ECAB17FB68D1003C0F9E /* RGDSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDSearchModel.h; sourceTree = "<group>"; };
 		4C92ECAC17FB68D1003C0F9E /* RGDSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDSearchModel.m; sourceTree = "<group>"; };
+		4CBA1A1118219EB600AE316D /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		4CBA1A131821A80400AE316D /* RGDAddBuildingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDAddBuildingTableViewController.h; sourceTree = "<group>"; };
+		4CBA1A141821A80400AE316D /* RGDAddBuildingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDAddBuildingTableViewController.m; sourceTree = "<group>"; };
 		4CC3B1E918076EBF00573361 /* 177-building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building.png"; sourceTree = "<group>"; };
 		4CC3B1EB18076ECF00573361 /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
 		4CDC386E17FCF7200034DB3C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -209,6 +214,8 @@
 				4CF83BFF1805E4D100E56B4A /* RGDBuildingImageViewController.m */,
 				4CF171991804B79D004D3066 /* RGDBuildingViewController.h */,
 				4CF1719A1804B79D004D3066 /* RGDBuildingViewController.m */,
+				4CBA1A131821A80400AE316D /* RGDAddBuildingTableViewController.h */,
+				4CBA1A141821A80400AE316D /* RGDAddBuildingTableViewController.m */,
 				4CF171961804A644004D3066 /* RGDDetailTableViewController.h */,
 				4CF171971804A644004D3066 /* RGDDetailTableViewController.m */,
 				4C92ECA817FB5FC6003C0F9E /* RGDSearchViewController.h */,
@@ -344,6 +351,7 @@
 		4CEEBA1017FB4D0000252013 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CBA1A1118219EB600AE316D /* 19-gear.png */,
 				4CEEBA1817FB4D0000252013 /* RGDAppDelegate.h */,
 				4CEEBA1917FB4D0000252013 /* RGDAppDelegate.m */,
 				4CC3B1EB18076ECF00573361 /* 111-user.png */,
@@ -491,6 +499,7 @@
 				4CEA25EF18048AA60066D86D /* buildings.plist in Resources */,
 				4CC3B1EA18076EBF00573361 /* 177-building.png in Resources */,
 				4CC3B1EC18076ECF00573361 /* 111-user.png in Resources */,
+				4CBA1A1218219EB600AE316D /* 19-gear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +528,7 @@
 				4CF5FC1C18188A6C00A1DA60 /* MyDataManager.m in Sources */,
 				4C8CEA3118204898004BF916 /* Building+Name.m in Sources */,
 				4C8CEA3418204D0B004BF916 /* RGDBuildingInfoViewController.m in Sources */,
+				4CBA1A151821A80400AE316D /* RGDAddBuildingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

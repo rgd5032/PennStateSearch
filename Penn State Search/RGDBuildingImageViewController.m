@@ -10,7 +10,9 @@
 #import "kConstants.h"
 
 @interface RGDBuildingImageViewController () <UIScrollViewDelegate>
+- (IBAction)dismissPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *titleBarItem;
 @property (strong, nonatomic) UIImageView *imageView;
 @property BOOL zoomImages;
 @end
@@ -25,7 +27,7 @@
     NSNumber *boolNumber = [preferences objectForKey:kZoomImages];
     self.zoomImages = [boolNumber boolValue];
     
-    self.title = self.imageTitle;
+    self.titleBarItem.title = self.imageTitle;
     _imageView = [[UIImageView alloc] initWithImage:self.image];
     [self.scrollView   addSubview:self.imageView];
     
@@ -57,4 +59,8 @@
     return self.imageView;
 }
 
+#pragma mark - IBActions
+- (IBAction)dismissPressed:(id)sender {
+    self.completionBlock(nil);
+}
 @end
