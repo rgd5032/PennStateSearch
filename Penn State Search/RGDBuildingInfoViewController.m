@@ -103,17 +103,6 @@
     self.completionBlock(self.textView.text);
 }
 
-//#pragma mark - Splitview delegate
-//-(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
-//    
-//    barButtonItem.title = @"States";
-//    [self.navigationItem setLeftBarButtonItem:barButtonItem];
-//}
-//
-//-(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem   {
-//    [self.navigationItem setLeftBarButtonItem:nil];
-//}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
         RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
@@ -127,6 +116,7 @@
 
 
 - (IBAction)photoButtonPressed:(id)sender {
+    [self setEditing:NO animated:NO];
     if (self.buildingImage != nil){
         [self performSegueWithIdentifier:@"BuildingImageSegue" sender:sender];
     }
