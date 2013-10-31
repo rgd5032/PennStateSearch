@@ -52,7 +52,6 @@
     Building *building = [NSEntityDescription insertNewObjectForEntityForName:@"Building" inManagedObjectContext:managedObjectContext];
     
     building.name = [dictionary objectForKey:@"name"];
-    building.info = [dictionary objectForKey:@"info"];
     [dataManager saveContext];
 }
 

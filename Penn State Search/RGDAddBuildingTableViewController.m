@@ -10,7 +10,6 @@
 
 @interface RGDAddBuildingTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *infoTextView;
 - (IBAction)savePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 
@@ -44,10 +43,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - IBActions
 - (IBAction)savePressed:(id)sender {
-    NSDictionary *dictionary = @{@"name":self.nameTextField.text, @"info":self.infoTextView.text};
-    self.completionBlock(dictionary);
+    if (self.nameTextField.text.length == 0){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"A building must have a name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else{
+        NSDictionary *dictionary = @{@"name":self.nameTextField.text};
+        self.completionBlock(dictionary);
+    }
 }
 
 - (IBAction)cancelPressed:(id)sender {

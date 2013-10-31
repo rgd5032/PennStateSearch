@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C015C3B1821EA84009C136D /* RGDBuildingPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C015C3A1821EA84009C136D /* RGDBuildingPhotoPickerController.m */; };
 		4C4BDF70180DD176001C9393 /* kConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF6F180DD176001C9393 /* kConstants.m */; };
 		4C4BDF73180DD6ED001C9393 /* RGDPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */; };
 		4C61CEEA1818544700F0CCE3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CEE51818544700F0CCE3 /* DataManager.m */; };
@@ -80,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C015C391821EA84009C136D /* RGDBuildingPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RGDBuildingPhotoPickerController.h; path = ../RGDBuildingPhotoPickerController.h; sourceTree = "<group>"; };
+		4C015C3A1821EA84009C136D /* RGDBuildingPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RGDBuildingPhotoPickerController.m; path = ../RGDBuildingPhotoPickerController.m; sourceTree = "<group>"; };
 		4C4BDF6E180DD176001C9393 /* kConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kConstants.h; sourceTree = "<group>"; };
 		4C4BDF6F180DD176001C9393 /* kConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kConstants.m; sourceTree = "<group>"; };
 		4C4BDF71180DD6ED001C9393 /* RGDPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDPreferencesViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 		4C8CEA3518204D30004BF916 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C015C391821EA84009C136D /* RGDBuildingPhotoPickerController.h */,
+				4C015C3A1821EA84009C136D /* RGDBuildingPhotoPickerController.m */,
 				4C8CEA3218204D0B004BF916 /* RGDBuildingInfoViewController.h */,
 				4C8CEA3318204D0B004BF916 /* RGDBuildingInfoViewController.m */,
 				4C4BDF71180DD6ED001C9393 /* RGDPreferencesViewController.h */,
@@ -529,6 +534,7 @@
 				4C8CEA3118204898004BF916 /* Building+Name.m in Sources */,
 				4C8CEA3418204D0B004BF916 /* RGDBuildingInfoViewController.m in Sources */,
 				4CBA1A151821A80400AE316D /* RGDAddBuildingTableViewController.m in Sources */,
+				4C015C3B1821EA84009C136D /* RGDBuildingPhotoPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

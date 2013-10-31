@@ -8,12 +8,16 @@
 
 #import "RGDBuildingInfoViewController.h"
 #import "RGDBuildingImageViewController.h"
+#import "RGDBuildingPhotoPickerController.h"
+#import "DataManager.h"
 
 #define kTextViewTopAndBottomMarginTotal 36
 
 @interface RGDBuildingInfoViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *photoButton;
+- (IBAction)photoButtonPressed:(id)sender;
 
 @end
 
@@ -34,18 +38,21 @@
 	// Do any additional setup after loading the view.
     self.textView.text = self.infoString;
     self.nameLabel.text = self.buildingName;
-    
-    if (self.buildingImage != nil){
-        self.navigationItem.rightBarButtonItems = @[self.editButtonItem, self.navigationItem.rightBarButtonItem];
-    }
-    else{
-        self.navigationItem.rightBarButtonItems = @[self.editButtonItem];
-    }
+    self.navigationItem.rightBarButtonItems = @[self.editButtonItem, self.navigationItem.rightBarButtonItem];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    
+    if (self.buildingImage != nil){
+        self.photoButton.title = @"Photo";
+    }
+    else{
+        self.photoButton.title = @"Add Photo";
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -115,9 +122,26 @@
         buildingImageViewController.completionBlock = ^(id obj){
             [self dismissViewControllerAnimated:true completion:NULL];
         };
-
     }
 }
 
 
+- (IBAction)photoButtonPressed:(id)sender {
+    if (self.buildingImage != nil){
+        [self performSegueWithIdentifier:@"BuildingImageSegue" sender:sender];
+    }
+    else{
+        RGDBuildingPhotoPickerController *buildingPhotoPickerController = [[RGDBuildingPhotoPickerController alloc] init];
+        buildingPhotoPickerController.completionBlock = ^(id obj){
+            if (obj){
+                UIImage *image = obj;
+                self.building.photo = UIImagePNGRepresentation(image);
+                self.buildingImage = [UIImage imageWithData:self.building.photo];
+                [[DataManager sharedInstance] saveContext];
+            }
+            [self dismissViewControllerAnimated:true completion:NULL];
+        };
+        [self presentViewController:buildingPhotoPickerController animated:YES completion:NULL];
+    }
+}
 @end

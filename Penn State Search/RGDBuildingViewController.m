@@ -22,6 +22,10 @@
 @property BOOL listOnlyBuildingsWithImages;
 @property (nonatomic,strong) DataSource *dataSource;
 @property (nonatomic,strong) MyDataManager *myDataManager;
+
+//search Bar info for Search Display Controller
+@property (nonatomic,strong) NSString *searchString;
+@property NSInteger searchOption;
 @end
 
 @implementation RGDBuildingViewController
@@ -44,6 +48,16 @@
     self.tableView.dataSource = self.dataSource;
     self.dataSource.tableView = self.tableView;
     self.navigationItem.rightBarButtonItems = @[self.editButtonItem, self.navigationItem.rightBarButtonItem];
+    
+    // The following 3 lines of code support the Search Display Controller
+    // the Search Display Controller will use the same data source
+    self.searchDisplayController.searchResultsDataSource = self.dataSource;
+    
+    // set the scope buttons
+    self.searchDisplayController.searchBar.scopeButtonTitles = @[@"All", @"One Word", @"Two Words"];
+    
+    // hide search bar
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -81,6 +95,7 @@
 #pragma mark - editing
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
 }
 
 // Override to support editing the table view.
@@ -106,6 +121,7 @@
         buildingInfoViewController.infoString = building.info;
         buildingInfoViewController.buildingImage = [[UIImage alloc] initWithData:building.photo];
         buildingInfoViewController.buildingName = building.name;
+        buildingInfoViewController.building = building;
         buildingInfoViewController.completionBlock = ^(id obj){
             NSString *newInfo = obj;
             building.info = newInfo;
@@ -129,5 +145,69 @@
     }
     
 }
+
+#pragma mark - Search Display Controller Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    // remember the current search string and filter the search results
+    self.searchString = searchString;
+    [self filterSearch];
+    
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // remember the current search option and filter the search results
+    self.searchOption = searchOption;
+    [self filterSearch];
+    return YES;
+}
+
+// construct the appropriate predicate based on the search string and search option (scope)
+// then update data source using predicate
+-(void)filterSearch {
+    
+    NSString *searchPredicateString;
+    if (self.searchString.length>0) {
+        searchPredicateString = [NSString stringWithFormat:@"name contains '%@'", self.searchString];
+    } else {
+        searchPredicateString = @"name contains ''";
+    }
+    
+    NSString *search;
+    switch (self.searchOption) {
+        case 0:
+            search = searchPredicateString;
+            break;
+        case 1:
+            search = [NSString stringWithFormat:@"%@ && !(name contains ' ')", searchPredicateString];
+            break;
+        default:
+            search = [NSString stringWithFormat:@"%@ && (name contains ' ')", searchPredicateString];
+            break;
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:search];
+    [self.dataSource updateWithPredicate:predicate];
+    
+}
+
+// when we begin searching we switch tableViews
+-(void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
+    self.dataSource.tableView = controller.searchResultsTableView;
+}
+
+// when we end searching we switch tableViews back to default
+-(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
+    self.dataSource.tableView = self.tableView;
+}
+
+#pragma mark - Search Bar Delegate
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.dataSource updateWithPredicate:nil];
+    [self.tableView reloadData];
+}
+
 
 @end

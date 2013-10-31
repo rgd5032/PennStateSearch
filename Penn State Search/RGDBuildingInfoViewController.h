@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Building.h"
 
 @interface RGDBuildingInfoViewController : UIViewController
 
 @property (nonatomic,strong) NSString *infoString;
 @property (nonatomic,strong) UIImage *buildingImage;
 @property (nonatomic,strong) NSString *buildingName;
+@property (nonatomic,strong) Building *building;
 
 @property (nonatomic,copy) CompletionBlock completionBlock;
 
