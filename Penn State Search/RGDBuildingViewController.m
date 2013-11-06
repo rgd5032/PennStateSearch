@@ -11,6 +11,8 @@
 #import "RGDBuildingInfoViewController.h"
 #import "RGDPreferencesViewController.h"
 #import "RGDAddBuildingTableViewController.h"
+#import "RGDBuildingMapViewController.h"
+#import <CoreLocation/CoreLocation.h>
 #import "kConstants.h"
 #import "MyDataManager.h"
 #import "DataSource.h"
@@ -79,7 +81,8 @@
 #pragma mark - Data Source Cell Configurer
 
 -(NSString*)cellIdentifierForObject:(id)object {
-    return @"CellWithDisclosure";
+    Building *building = object;
+    return (building.latitude.floatValue != 0.0 && building.longitude.floatValue != 0.0) ? @"CellWithDetailDisclosure" : @"Cell";
 }
 
 -(void)configureCell:(UITableViewCell *)cell withObject:(id)object {
@@ -115,7 +118,7 @@
 {
     if ([segue.identifier isEqualToString:@"BuildingInfoSegue"]) {
         RGDBuildingInfoViewController *buildingInfoViewController = segue.destinationViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.dataSource.tableView indexPathForSelectedRow];
         __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
         
         buildingInfoViewController.infoString = building.info;
@@ -141,7 +144,17 @@
                 [self.myDataManager addBuilding:dictionary];
             }
         };
-
+    }
+    else if ([segue.identifier isEqualToString:@"MapSegue"]){
+        RGDBuildingMapViewController *buildingMapViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        
+        buildingMapViewController.name = building.name;
+        CLLocationDegrees latitude = building.latitude.doubleValue;
+        CLLocationDegrees longitude = building.longitude.doubleValue;
+        buildingMapViewController.mapCenter = CLLocationCoordinate2DMake(latitude, longitude);
+        buildingMapViewController.photo = [UIImage imageWithData: building.photo];
     }
     
 }
@@ -201,6 +214,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
 // when we end searching we switch tableViews back to default
 -(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
     self.dataSource.tableView = self.tableView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self performSegueWithIdentifier:@"BuildingInfoSegue" sender:nil];
+    }
+    
 }
 
 #pragma mark - Search Bar Delegate

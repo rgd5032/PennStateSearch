@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2251C70F1829A2F00086D20D /* RGDBuildingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251C70E1829A2F00086D20D /* RGDBuildingMapViewController.m */; };
+		2251C7111829A49A0086D20D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251C7101829A49A0086D20D /* CoreLocation.framework */; };
+		2251C7131829A4A90086D20D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251C7121829A4A90086D20D /* MapKit.framework */; };
+		2251C7151829A5610086D20D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251C7141829A5610086D20D /* AddressBook.framework */; };
 		4C015C3B1821EA84009C136D /* RGDBuildingPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C015C3A1821EA84009C136D /* RGDBuildingPhotoPickerController.m */; };
 		4C4BDF70180DD176001C9393 /* kConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF6F180DD176001C9393 /* kConstants.m */; };
 		4C4BDF73180DD6ED001C9393 /* RGDPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BDF72180DD6ED001C9393 /* RGDPreferencesViewController.m */; };
@@ -81,6 +85,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2251C70D1829A2F00086D20D /* RGDBuildingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDBuildingMapViewController.h; sourceTree = "<group>"; };
+		2251C70E1829A2F00086D20D /* RGDBuildingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDBuildingMapViewController.m; sourceTree = "<group>"; };
+		2251C7101829A49A0086D20D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2251C7121829A4A90086D20D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2251C7141829A5610086D20D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		4C015C391821EA84009C136D /* RGDBuildingPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RGDBuildingPhotoPickerController.h; path = ../RGDBuildingPhotoPickerController.h; sourceTree = "<group>"; };
 		4C015C3A1821EA84009C136D /* RGDBuildingPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RGDBuildingPhotoPickerController.m; path = ../RGDBuildingPhotoPickerController.m; sourceTree = "<group>"; };
 		4C4BDF6E180DD176001C9393 /* kConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kConstants.h; sourceTree = "<group>"; };
@@ -191,6 +200,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2251C7151829A5610086D20D /* AddressBook.framework in Frameworks */,
+				2251C7131829A4A90086D20D /* MapKit.framework in Frameworks */,
+				2251C7111829A49A0086D20D /* CoreLocation.framework in Frameworks */,
 				4C61CF1B1818582300F0CCE3 /* CoreData.framework in Frameworks */,
 				4CEEBA0A17FB4D0000252013 /* UIKit.framework in Frameworks */,
 				4CEEBA0C17FB4D0000252013 /* Foundation.framework in Frameworks */,
@@ -227,6 +239,8 @@
 				4C92ECA917FB5FC6003C0F9E /* RGDSearchViewController.m */,
 				4CEEBA2417FB4D0000252013 /* RGDViewController.h */,
 				4CEEBA2517FB4D0000252013 /* RGDViewController.m */,
+				2251C70D1829A2F00086D20D /* RGDBuildingMapViewController.h */,
+				2251C70E1829A2F00086D20D /* RGDBuildingMapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +348,9 @@
 		4CEEBA0817FB4D0000252013 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2251C7141829A5610086D20D /* AddressBook.framework */,
+				2251C7121829A4A90086D20D /* MapKit.framework */,
+				2251C7101829A49A0086D20D /* CoreLocation.framework */,
 				4CEEBA0917FB4D0000252013 /* UIKit.framework */,
 				4CEEBA0B17FB4D0000252013 /* Foundation.framework */,
 				4CEEBA0D17FB4D0000252013 /* CoreGraphics.framework */,
@@ -517,6 +534,7 @@
 			files = (
 				4CEEBA1617FB4D0000252013 /* main.m in Sources */,
 				4CEEBA1A17FB4D0000252013 /* RGDAppDelegate.m in Sources */,
+				2251C70F1829A2F00086D20D /* RGDBuildingMapViewController.m in Sources */,
 				4CEEBA2617FB4D0000252013 /* RGDViewController.m in Sources */,
 				4CEEBA4217FB4DC100252013 /* RHLDAPSearch.m in Sources */,
 				4C92ECAA17FB5FC6003C0F9E /* RGDSearchViewController.m in Sources */,
@@ -622,12 +640,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Penn State Search/Penn State Search-Prefix.pch";
 				INFOPLIST_FILE = "Penn State Search/Penn State Search-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Penn State Search/ldap/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Penn State Search/ldap/include";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -638,12 +658,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Penn State Search/Penn State Search-Prefix.pch";
 				INFOPLIST_FILE = "Penn State Search/Penn State Search-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Penn State Search/ldap/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Penn State Search/ldap/include";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

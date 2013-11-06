@@ -10,6 +10,11 @@
 
 @interface RGDAddBuildingTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *latitudeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *buildingCodeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *yearTextField;
+@property (weak, nonatomic) IBOutlet UITextView *infoTextView;
 - (IBAction)savePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 
@@ -56,7 +61,21 @@
         [alertView show];
     }
     else{
-        NSDictionary *dictionary = @{@"name":self.nameTextField.text};
+        NSString *name = self.nameTextField.text;
+        NSString *info = self.infoTextView.text;
+        NSNumber *latitude = [NSNumber numberWithFloat:[self.latitudeTextField.text floatValue]];
+        NSNumber *longitude = [NSNumber numberWithFloat:[self.longitudeTextField.text floatValue]];
+        NSNumber *buildingCode = [NSNumber numberWithInteger:[self.buildingCodeTextField.text integerValue]];
+        NSNumber *year = [NSNumber numberWithInteger:[self.yearTextField.text integerValue]];
+        
+        NSDictionary *dictionary = @{
+                                     @"name":name,
+                                     @"info": info,
+                                     @"latitude":latitude,
+                                     @"longitude":longitude,
+                                     @"opp_bldg_code":buildingCode,
+                                     @"year_constructed":year
+                                     };
         self.completionBlock(dictionary);
     }
 }

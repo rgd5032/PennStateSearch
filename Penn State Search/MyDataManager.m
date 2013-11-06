@@ -52,6 +52,12 @@
     Building *building = [NSEntityDescription insertNewObjectForEntityForName:@"Building" inManagedObjectContext:managedObjectContext];
     
     building.name = [dictionary objectForKey:@"name"];
+    building.info = [dictionary objectForKey:@"info"];
+    building.latitude = [dictionary objectForKey:@"latitude"];
+    building.longitude = [dictionary objectForKey:@"longitude"];
+    building.opp_bldg_code = [dictionary objectForKey:@"opp_building_code"];
+    building.year_constructed = [dictionary objectForKey:@"year_constructed"];
+    building.photo = nil;
     [dataManager saveContext];
 }
 
