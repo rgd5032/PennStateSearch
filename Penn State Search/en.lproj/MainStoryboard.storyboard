@@ -434,6 +434,7 @@
                     <navigationItem key="navigationItem" id="VS7-yZ-NU5"/>
                     <connections>
                         <outlet property="mapView" destination="5Ur-Np-5gv" id="Ku1-F1-sYh"/>
+                        <segue destination="Agb-SN-fn4" kind="modal" identifier="BuildingImageSegue" id="xZQ-wi-wgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P48-vH-6w4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -776,5 +777,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="v8v-Rs-F4P"/>
+        <segue reference="xZQ-wi-wgK"/>
     </inferredMetricsTieBreakers>
 </document>

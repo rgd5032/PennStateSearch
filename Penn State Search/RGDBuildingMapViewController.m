@@ -34,8 +34,6 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-
-    //[self geocodeInfo];
     [self updateMapView];
 }
 
@@ -54,40 +52,6 @@
     [building setTitle:self.name];
     [self.mapView addAnnotation:building];
 }
-
-//- (void) geocodeInfo {
-//    CLGeocoder * geocoder1 = [[CLGeocoder alloc] init];
-//    CLGeocoder * geocoder2 = [[CLGeocoder alloc] init];
-//    
-//    NSMutableDictionary * stateAddressDict = [[NSMutableDictionary alloc] init];
-//    [stateAddressDict setValue:self.title
-//                        forKey:[NSString stringWithFormat:@"%@", kABPersonAddressStateKey]];
-//    
-//    [geocoder1 geocodeAddressDictionary:stateAddressDict
-//                      completionHandler:^(NSArray * placemarks, NSError * error) {
-//                          if (placemarks) {
-//                              CLPlacemark * place = (CLPlacemark *)[placemarks objectAtIndex:0];
-//                              [self setMapCenter:place.location.coordinate];
-//                              [self updateMapView];
-//                              
-//                          }
-//                      }];
-//    
-//    NSMutableDictionary * capAddressDict = [[NSMutableDictionary alloc] init];
-//    [capAddressDict setValue:self.title
-//                      forKey:[NSString stringWithFormat:@"%@", kABPersonAddressStateKey]];
-//    [capAddressDict setValue:self.capitalName
-//                      forKey:[NSString stringWithFormat:@"%@", kABPersonAddressCityKey]];
-//    
-//    [geocoder2 geocodeAddressDictionary:capAddressDict
-//                      completionHandler:^(NSArray * placemarks, NSError * error) {
-//                          if (placemarks) {
-//                              CLPlacemark * place = (CLPlacemark *)[placemarks objectAtIndex:0];
-//                              [self setCapCenter:place.location.coordinate];
-//                              [self updateMapView];
-//                          }
-//                      }];
-//}
 
 #pragma mark - MapView Delegate
 
@@ -116,15 +80,18 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    RGDBuildingImageViewController *buildingImageViewController = [[RGDBuildingImageViewController alloc]init];
-    buildingImageViewController.image = self.photo;
-    buildingImageViewController.imageTitle = self.name;
-    buildingImageViewController.completionBlock = ^(id obj){
-        [self dismissViewControllerAnimated:true completion:NULL];
-    };
+    [self performSegueWithIdentifier:@"BuildingImageSegue" sender:nil];
+}
 
-    //[self presentViewController:buildingImageViewController animated:YES completion:NULL];
-    [self.navigationController pushViewController:buildingImageViewController animated:YES];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"BuildingImageSegue"]) {
+        RGDBuildingImageViewController *buildingImageViewController = segue.destinationViewController;
+        buildingImageViewController.image = self.photo;
+        buildingImageViewController.imageTitle = self.name;
+        buildingImageViewController.completionBlock = ^(id obj){
+            [self dismissViewControllerAnimated:true completion:NULL];
+        };
+    }
 }
 
 @end
