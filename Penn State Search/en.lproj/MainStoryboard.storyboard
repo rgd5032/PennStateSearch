@@ -351,6 +351,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="7e5-sr-KoA" id="kUD-Lx-Ygc"/>
                         <outlet property="tableView" destination="8tD-HE-2E8" id="sIi-et-6L8"/>
+                        <segue destination="mmZ-vo-YA6" kind="push" identifier="MapSegueFromSearchResult" id="B8S-Sd-TTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1P-yU-7yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -777,6 +778,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="v8v-Rs-F4P"/>
+        <segue reference="B8S-Sd-TTQ"/>
         <segue reference="xZQ-wi-wgK"/>
     </inferredMetricsTieBreakers>
 </document>

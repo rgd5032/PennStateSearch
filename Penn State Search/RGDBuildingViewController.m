@@ -67,15 +67,22 @@
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     NSNumber *boolNumber = [preferences objectForKey:kShowOnlyBuildingsWithImages];
     self.listOnlyBuildingsWithImages = [boolNumber boolValue];
-    if (self.listOnlyBuildingsWithImages)
-    {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"photo!=nil"];
-        [self.dataSource updateWithPredicate:predicate];
+    
+    if (self.dataSource.tableView == self.searchDisplayController.searchResultsTableView){
+        [self filterSearch];
     }
     else{
-        [self.dataSource updateWithPredicate:nil];
+        if (self.listOnlyBuildingsWithImages)
+        {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"photo!=nil"];
+            [self.dataSource updateWithPredicate:predicate];
+        }
+        else{
+            [self.dataSource updateWithPredicate:nil];
+        }
+
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 #pragma mark - Data Source Cell Configurer
@@ -87,6 +94,16 @@
 
 -(void)configureCell:(UITableViewCell *)cell withObject:(id)object {
     Building *building = object;
+    
+    if (self.dataSource.tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        if (building.latitude.floatValue != 0.0 && building.longitude.floatValue != 0.0){
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+    }
     
     cell.textLabel.text = building.name;
 }
@@ -156,6 +173,17 @@
         buildingMapViewController.mapCenter = CLLocationCoordinate2DMake(latitude, longitude);
         buildingMapViewController.photo = [UIImage imageWithData: building.photo];
     }
+    else if ([segue.identifier isEqualToString:@"MapSegueFromSearchResult"]){
+        RGDBuildingMapViewController *buildingMapViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = sender;
+        __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        
+        buildingMapViewController.name = building.name;
+        CLLocationDegrees latitude = building.latitude.doubleValue;
+        CLLocationDegrees longitude = building.longitude.doubleValue;
+        buildingMapViewController.mapCenter = CLLocationCoordinate2DMake(latitude, longitude);
+        buildingMapViewController.photo = [UIImage imageWithData: building.photo];
+    }
     
 }
 
@@ -180,7 +208,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 // construct the appropriate predicate based on the search string and search option (scope)
 // then update data source using predicate
--(void)filterSearch {
+-(NSPredicate*)filterSearch {
     
     NSString *searchPredicateString;
     if (self.searchString.length>0) {
@@ -203,7 +231,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     NSPredicate *predicate = [NSPredicate predicateWithFormat:search];
     [self.dataSource updateWithPredicate:predicate];
-    
+    return predicate;
 }
 
 // when we begin searching we switch tableViews
@@ -214,6 +242,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
 // when we end searching we switch tableViews back to default
 -(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
     self.dataSource.tableView = self.tableView;
+    if (self.listOnlyBuildingsWithImages)
+    {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"photo!=nil"];
+        [self.dataSource updateWithPredicate:predicate];
+    }
+    else{
+        [self.dataSource updateWithPredicate:nil];
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -221,6 +259,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
         [self performSegueWithIdentifier:@"BuildingInfoSegue" sender:nil];
     }
     
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView){
+        [self performSegueWithIdentifier:@"MapSegueFromSearchResult" sender:indexPath];
+    }
 }
 
 #pragma mark - Search Bar Delegate
